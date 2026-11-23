@@ -1,0 +1,9 @@
+# Local archive of unused/source files; keep out of the public portfolio repo.
+/_archive/
+
+# Editor and operating-system noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
