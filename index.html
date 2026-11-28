@@ -287,12 +287,195 @@
     .reach-icons a:nth-child(6){animation-delay:7.5s}
     .reach-icons a:nth-child(2) svg{fill:none;stroke:currentColor}.reach-icons a:nth-child(4) svg,.reach-icons a:nth-child(5) svg{fill:currentColor;stroke:none}
   </style>
+  <style>
+    /* Phone layout: keep navigation discoverable and let content use the full viewport. */
+    @media(max-width:600px){
+      html{scroll-padding-top:112px}
+      [id]{scroll-margin-top:112px}
+      body{overflow-x:clip}
+      .wrap{width:calc(100% - 32px)}
+      .topbar.wrap{position:sticky;top:0;min-height:0;padding:8px 16px 9px;display:flex;flex-direction:column;align-items:stretch;gap:5px}
+      .brand{align-self:flex-start;font-size:17px;line-height:1.1}
+      .nav{width:100%;max-width:none;display:flex;flex-wrap:wrap;justify-content:flex-start;gap:3px 5px;overflow:visible;white-space:normal}
+      .nav-link{min-height:32px;padding:7px 8px;font-size:10px;line-height:1.2}
+      .nav .contact-link,.nav .resume-nav{padding:7px 9px}
+      .character-hero{padding:38px 0 44px;gap:26px}
+      .character-kicker{font-size:8px;letter-spacing:.08em}
+      .kicker-id{font-size:7px}
+      .class-label{max-width:100%;flex-wrap:wrap;gap:6px 9px;font-size:8px}
+      .character-panel h1{font-size:clamp(48px,13vw,68px);margin:19px 0 14px}
+      .character-panel .intro{font-size:14px;line-height:1.6}
+      .stat-row{grid-template-columns:minmax(82px, .58fr) minmax(0,1fr) 22px;gap:7px;font-size:7px;letter-spacing:.07em}
+      .stats-board{padding:16px 13px 12px;margin-top:23px}
+      .stats-title{font-size:9px}.stats-title small{font-size:7px}
+      .character-stage{width:min(100%,350px);padding:10px 10px 12px}
+      .character-stage .portrait-frame{height:clamp(265px,82vw,320px)}
+      .character-stage .portrait-sticker{right:-5px;top:35px;width:65px;height:65px;font-size:8px}
+      .character-stage .loadout-picker{gap:5px}
+      .character-stage .loadout-slot img{height:clamp(44px,14vw,56px)}
+      .stage-stamp{right:-8px;bottom:70px}
+      section{padding:60px 0}
+      .about-section{padding-top:54px;padding-bottom:70px}
+      .folder-tab{left:16px;min-width:210px;max-width:82%;font-size:8px}
+      .folder-page{gap:20px;padding:34px 18px 24px;clip-path:polygon(0 0,98% 1%,100% 98%,96% 100%,2% 99%)}
+      .think-cutout{width:min(68%,240px)}
+      .about-folder .about-copy{font-size:14px;line-height:1.7}
+      .about-folder .about-copy h2{font-size:clamp(29px,8vw,36px);line-height:1.05}
+      .section-head{gap:14px;margin-bottom:30px}
+      .dark-section>.wrap>.section-head{gap:12px;margin-bottom:32px}
+      .dark-section>.wrap>.section-head>h2{font-size:clamp(34px,9vw,46px);line-height:1.02;overflow-wrap:anywhere}
+      .dark-section>.wrap>.section-head>.about-copy{font-size:14px;line-height:1.65}
+      .project-cabinet,.logistics-cabinet,.video-cabinet{margin:30px 0 40px;padding-left:10px;padding-right:10px}
+      .project-drawer-inner{padding:38px 8px 8px}
+      .cabinet-label{left:10px;right:10px;gap:5px;font-size:6px;letter-spacing:.08em}
+      .cabinet-label b{font-size:6px;text-align:right}
+      .project-drawer-heading,.chapter-drawer-heading{width:auto;min-height:140px;margin:0 0 20px;padding:18px 15px;overflow:hidden}
+      .project-drawer-heading h2,.chapter-drawer-heading h2{font-size:clamp(25px,7vw,34px);line-height:1.04;overflow-wrap:anywhere}
+      .project-drawer-heading p,.chapter-drawer-heading p{font-size:12px;line-height:1.55}
+      .project-shelf{padding:12px 7px 19px;margin-bottom:22px}
+      .project-shelf-label{align-items:flex-start;font-size:7px;letter-spacing:.06em;gap:8px}
+      .project-shelf-label small{max-width:42%;font-size:6px;line-height:1.4}
+      .project-shelf .project{flex-basis:min(82vw,330px);min-height:300px;padding:18px}
+      .project-shelf .project h3{font-size:25px;margin-top:37px}
+      .project-shelf .project p{font-size:13px;line-height:1.6}
+      .project-bottom{font-size:11px;gap:9px}
+      .future-work-note{flex-basis:140px;padding:13px 11px}
+      .project-manager-role{margin:0 2px 18px;padding:15px 12px}
+      .archive-heading{flex-wrap:wrap;align-items:flex-start;gap:5px 12px}
+      .archive-heading h3{font-size:clamp(22px,6.5vw,29px)}
+      .archive-heading>span{font-size:7px;text-align:left}
+      .book-shelf-layout{grid-template-columns:minmax(0,1fr);gap:12px;padding:10px 8px 0}
+      .book-shelf{min-width:0;min-height:215px;gap:6px;padding:7px 5px 0}
+      .archive-book{height:198px;flex-basis:44px;min-width:44px;padding:10px 5px}
+      .archive-book:hover,.archive-book:focus-visible,.archive-book.active{flex-basis:52px;transform:translateY(-7px)}
+      .book-preview{min-width:0;min-height:188px}
+      .book-preview-cover{min-height:168px}
+      .cassette-shelf,.video-gallery{grid-template-columns:minmax(0,1fr);gap:14px}
+      .cassette{min-width:0}
+      .cassette-label{min-height:88px}
+      .cassette-label:before{width:52%}
+      .cassette-label b{font-size:14px}
+      .video-roles .timeline-row{grid-template-columns:1fr;gap:9px;padding:20px 0}
+      .timeline-content{grid-template-columns:minmax(0,1fr);gap:10px}
+      #toolkit>.section-head>h2{font-size:clamp(27px,7.8vw,34px);white-space:normal;line-height:1.06}
+      .skills-layout{grid-template-columns:minmax(0,1fr);gap:12px}
+      .skill-card{padding:20px 17px}
+      .chips{gap:7px}
+      .chip{font-size:11px;padding:7px 9px}
+      .cred{padding:58px 0}
+      .cred-inner{grid-template-columns:minmax(0,1fr);gap:18px}
+      .cred-intro h2{font-size:clamp(34px,9vw,46px)}
+      .certs{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+      .cert{min-height:104px;padding:13px 10px;font-size:11px}
+      .resume-section{padding:42px 0 48px}
+      .resume-layout{grid-template-columns:minmax(0,1fr);gap:20px}
+      .resume-intro{padding-left:14px}
+      .resume-intro h2{font-size:clamp(31px,8.6vw,40px)}
+      .resume-facts{font-size:7px}
+      .resume-preview{height:auto;min-height:0;padding:8px;transform:none}
+      .resume-preview-toolbar{height:32px;flex-basis:32px;padding:0 8px;font-size:7px}
+      .resume-preview-window{height:clamp(210px,65vw,285px);flex:none;margin:7px 0 22px}
+      .resume-preview-window img{width:100%;height:auto;object-fit:initial}
+      .resume-preview:after{right:11px;bottom:10px;font-size:6px}
+      .contact{padding:54px 0 64px}
+      .contact-panel{grid-template-columns:minmax(0,1fr);grid-template-areas:"copy" "portrait" "links";gap:17px;padding:25px 18px 32px}
+      .contact-copy h2{font-size:clamp(37px,11vw,48px)}
+      .contact-panel p{font-size:13px;line-height:1.6}
+      .contact-cutout{width:min(100%,235px);height:300px;margin:4px auto 16px}
+      .contact-photo-window>img{width:320px;height:213px}
+      .contact-cutout figcaption{bottom:-13px;font-size:7px;white-space:nowrap}
+      .contact-panel .contact-links{width:100%;gap:11px}
+      .contact-panel .contact-links a{max-width:100%;font-size:11px;gap:8px;overflow-wrap:anywhere}
+      .contact-panel .contact-links a span:last-child{min-width:0}
+      .reach-bubble{right:30%;top:1%}
+      .preview-overlay{padding:8px;place-items:start center}
+      .preview-window{width:100%;max-height:calc(100dvh - 16px);overflow-y:auto;border-width:5px}
+      .preview-top,.preview-bottom{position:sticky;z-index:5;padding:8px 9px;font-size:7px;letter-spacing:.07em}
+      .preview-top{top:0}.preview-bottom{bottom:0}
+      .preview-close{width:30px;height:30px;flex:none}
+      .preview-content{grid-template-columns:minmax(0,1fr);gap:12px;padding:14px 12px}
+      .preview-copy h2{font-size:clamp(25px,7vw,34px);line-height:1.02}
+      .preview-copy p{font-size:13px;line-height:1.6}
+      .project-mode .preview-content,.event-mode .preview-content{grid-template-columns:minmax(0,1fr)}
+      .project-mode .tv-set{aspect-ratio:16/10;min-height:0}
+      .project-mode .project-gallery-main,.event-gallery .project-gallery-main{min-height:175px}
+      .project-gallery{gap:7px}
+      .event-gallery{grid-template-columns:minmax(0,1.35fr) minmax(75px,.8fr);gap:7px;height:190px}
+      .event-gallery .project-gallery-sub{gap:7px}
+      .event-socials>a{padding:7px 8px}
+      .footer{font-size:9px}
+    }
+    @media(max-width:360px){
+      .wrap{width:calc(100% - 26px)}
+      .topbar.wrap{padding-left:13px;padding-right:13px}
+      .nav{gap:2px 3px}
+      .nav-link{padding:6px 6px;font-size:9px}
+      .nav .contact-link,.nav .resume-nav{padding:6px 7px}
+      .stat-row{grid-template-columns:76px minmax(0,1fr) 20px;gap:5px;font-size:6.5px}
+      .stats-board{padding-right:10px;padding-left:10px}
+      .project-shelf-label{font-size:6px}
+      .certs{grid-template-columns:minmax(0,1fr)}
+      .contact-panel .contact-links a{font-size:10px}
+      .project-bottom{font-size:10px}
+    }
+    @media(hover:none){.project:hover,.event-card:hover,.video-card:hover,.cert:hover{transform:none}.nav-link:hover{transform:none}}
+    @media(prefers-reduced-motion:reduce){.contact-panel,.project-drawer-heading,.chapter-drawer-heading{scroll-behavior:auto}}
+  </style>
+  <style>
+    /* Skills pinboard: warm cork boards with the existing category-colored notes. */
+    #toolkit{scroll-margin-top:90px}
+    #toolkit>.section-head{grid-template-columns:1fr;gap:12px;margin-bottom:28px}
+    #toolkit>.section-head>.eyebrow{font-size:10px}
+    #toolkit>.section-head>h2{font-size:clamp(34px,4.2vw,48px);white-space:normal}
+    .skills-layout{gap:20px}
+    .skills-layout .skill-card{position:relative;isolation:isolate;overflow:hidden;min-height:160px;padding:27px 24px 22px;border:8px solid #8c5938;border-bottom-width:11px;background-color:#bc8252;background-image:radial-gradient(#6d412633 .75px,transparent .9px),radial-gradient(#f4d2a522 .7px,transparent .9px),linear-gradient(135deg,#c89160,#b77948);background-size:7px 7px,11px 11px,100% 100%;box-shadow:inset 0 0 0 2px #e0b27b,5px 7px 0 #a5c9e8;transform:rotate(-.35deg);transition:transform .25s,box-shadow .25s}
+    .skill-card:nth-child(even){transform:rotate(.35deg)}
+    .skill-card:before{content:"";position:absolute;z-index:2;top:10px;left:50%;width:12px;height:12px;border:2px solid #fff4d7;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff8cf 0 16%,#d7a84d 20% 58%,#986832 68%);box-shadow:1px 2px 2px #583a2870;transform:translateX(-50%)}
+    .skill-card h3{position:relative;z-index:1;display:table;margin:0 0 15px;padding:7px 11px;background:#fffdf7;color:#28476a;box-shadow:2px 3px 0 #835a3d;font-size:15px}
+    .skill-card .chips{position:relative;z-index:1;gap:8px}
+    .skill-card .chip{border:1px solid #ffffffa8;box-shadow:2px 3px 0 #65473155;transform:rotate(-.5deg)}
+    .skill-card .chip:nth-child(3n){transform:rotate(.6deg)}
+    .skill-card:hover{transform:translateY(-3px) rotate(0);box-shadow:inset 0 0 0 2px #e0b27b,7px 10px 0 #91b7dc}
+
+    /* Certificates hang from a warm display wall on small cords and pins. */
+    #certifications{scroll-margin-top:88px;background-color:#ddc69f;background-image:radial-gradient(#987c5730 .75px,transparent .9px),linear-gradient(115deg,#ead9b9,#d9bf94 58%,#e6d1ac);background-size:8px 8px,100% 100%;border-block:10px solid #9e7850;box-shadow:inset 0 5px 0 #f4e6cc,inset 0 -6px 0 #bd9a6b}
+    .cred:before{content:"04";color:#ffffff16}
+    .cred-inner{align-items:start}
+    .cred-intro{padding-top:30px}
+    .cred-intro .eyebrow{color:#705834}
+    .cred-intro h2{color:#173b63}
+    .cred-intro h2 em{color:#4f84b8}
+    .cred-intro p{color:#4d5e70}
+    .certs{align-items:start;gap:27px 18px;padding:8px 5px 12px}
+    .cert{min-height:142px;margin-top:16px;padding:19px 16px 16px;border:5px double #d7b96f;background:linear-gradient(135deg,#fffef8,#f4eedf);color:#244968;box-shadow:0 0 0 4px #fff8e8,5px 9px 0 #98744a,8px 13px 0 #ffffff9c;transform:rotate(-.6deg)}
+    .cert:nth-child(even){transform:rotate(.65deg)}
+    .cert:before{content:"";position:absolute;left:50%;top:-25px;width:2px;height:20px;background:#96784f;box-shadow:0 0 0 1px #f3e2bd;transform:translateX(-50%)}
+    .cert:after{counter-increment:credential;content:"0" counter(credential);position:absolute;z-index:0;right:9px;bottom:3px;color:#e7dcc2;font:800 31px/.9 var(--display)}
+    .cert small,.cert ul{position:relative;z-index:1}
+    .cert small{margin-bottom:10px;color:#75603d;font-size:8px}
+    .cert ul{padding-left:17px;margin:0}
+    .cert li{padding-left:1px}
+    .cert:hover,.cert:nth-child(even):hover{transform:translateY(-4px) rotate(0);box-shadow:0 0 0 4px #fff8e8,6px 12px 0 #89663f,9px 16px 0 #ffffff9c}
+
+    /* A warm tabletop makes the CV preview read like a paper document laid out for review. */
+    #resume{background-color:#986943;background-image:repeating-linear-gradient(0deg,transparent 0 30px,#68452820 31px,#d7ae7a18 33px,transparent 36px),repeating-linear-gradient(90deg,#ffffff08 0 1px,transparent 1px 74px),linear-gradient(120deg,#b98759,#8d603e 58%,#a8794c);border-top:10px solid #724c32;box-shadow:inset 0 5px 0 #d5b082}
+    .resume-intro{padding:22px 22px 22px 25px;background:#fffdf7;border:1px solid #eadfc9;box-shadow:5px 7px 0 #694a32,8px 11px 0 #ffffffa8;transform:rotate(-.45deg)}
+    .resume-intro h2{color:#173b72}
+    .resume-intro h2 em{color:#4f84b8}
+    .resume-intro p{color:#526b86}
+    .resume-preview{background:#fffdf7;border:1px solid #f4e8d2;box-shadow:8px 10px 0 #694a32,13px 16px 0 #ffffffb8}
+    .resume-preview:hover{box-shadow:10px 13px 0 #694a32,16px 19px 0 #ffffffc7}
+    @media(max-width:900px){.cred-inner{grid-template-columns:minmax(0,1fr);gap:18px}.cred-intro{padding:8px 0 0}.certs{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media(max-width:760px){#toolkit>.section-head{margin-bottom:25px}.skill-card{min-height:145px;padding:25px 16px 18px;border-width:7px;border-bottom-width:9px}.skill-card h3{font-size:14px}.certs{grid-template-columns:repeat(2,minmax(0,1fr));gap:25px 13px}.cert{min-height:120px;padding:16px 12px 14px}.resume-intro{padding:18px 15px 18px 18px}.resume-preview{box-shadow:5px 7px 0 #694a32,8px 10px 0 #ffffffb8}}
+    @media(max-width:460px){.certs{grid-template-columns:1fr;gap:24px}.cert{min-height:0;padding:16px}.resume-preview{box-shadow:4px 6px 0 #694a32,7px 9px 0 #ffffffb8}}
+    @media(prefers-reduced-motion:reduce){.skill-card,.cert{transition:none}.skill-card:hover,.cert:hover{transform:none}}
+  </style>
 </head>
 <body>
   <div class="scroll-progress" aria-hidden="true"></div>
   <header class="wrap topbar">
     <a class="brand" href="#home">JL<span>.</span>M</a>
-    <nav class="nav" aria-label="Main navigation"><a class="nav-link" href="#about">About</a><a class="nav-link" href="#work">Projects</a><a class="nav-link" href="#logistics">Experience</a><a class="nav-link" href="#creative">Creative</a><a class="nav-link" href="#toolkit">Toolkit</a><a class="nav-link resume-nav" href="#resume">Resume ↓</a><a class="nav-link contact-link" href="#contact">Contact ↗</a></nav>
+    <nav class="nav" aria-label="Main navigation"><a class="nav-link" href="#about">About</a><a class="nav-link" href="#work">Projects</a><a class="nav-link" href="#logistics">Experience</a><a class="nav-link" href="#creative">Creative</a><a class="nav-link" href="#toolkit">Skills</a><a class="nav-link" href="#certifications">Certifications</a><a class="nav-link resume-nav" href="#resume">Resume ↓</a><a class="nav-link contact-link" href="#contact">Contact ↗</a></nav>
   </header>
   <main>
     <div class="wrap hero character-hero" id="home">
@@ -338,7 +521,7 @@
         <div class="folder-page">
           <figure class="think-cutout"><div class="think-image"><img src="assets/profile/thinking-cutout.png" alt="Paper cutout of John Leland in a thinking pose"><span class="idea-bulb" aria-hidden="true">✦</span></div><figcaption>THINKING MODE / ALWAYS ON</figcaption></figure>
           <div class="about-copy"><div class="eyebrow">01 / Character notes</div><h2>Good work happens when <em>people and ideas</em> move together.</h2><p>I'm a fourth-year Computer Science student specializing in Software Engineering at FEU Institute of Technology. In my thesis team, I help turn a technical idea into a plan, keep the work moving, and bring research through evaluation.</p><p>Outside the classroom, I've organized events for a student association, led a school research group, and edited audio-visual presentations. I'm interested in an internship where I can contribute across project coordination and software development while continuing to learn. I'm also learning AI software development and related topics, including ways AI can support useful software and workflows.</p></div>
-          <span class="folder-corner-note">QUEST LOG<br>01 / 04</span>
+          <span class="folder-corner-note">QUEST LOG<br>01 / 05</span>
         </div>
       </div>
     </section>
@@ -350,7 +533,7 @@
           <article class="project" data-project-difficulty="Difficult" data-project-status="Completed" data-project-date="Completed 2026" data-project-role="Project Manager" data-project-image="assets/projects/hexlapter.png" data-preview-title="HexLapTer" data-preview-kind="UNDERGRADUATE THESIS" data-preview-copy="HexLapTer was my undergraduate thesis on real-time hex-tiling and Laplacian texture blending for procedurally generated environments. As Project Manager, I coordinated planning, team progress, documentation, and communication with our adviser and panel. I co-developed the Unity plugin and served as the primary contributor to the research paper, including expert evaluation using ISO/IEC 25010 and statistical analysis. Our team passed the title defense with a high grade, and the project was completed in 2026." role="button" tabindex="0" aria-haspopup="dialog"><div class="project-top"><span class="project-index">PROJECT 02</span><span class="project-badges"><span class="project-tag">Undergraduate thesis</span></span></div><span class='project-sticky-note' aria-hidden='true'><img src='assets/projects/hexlapter.png' alt=''></span><h3>HexLapTer</h3><div class="project-sub">Real-time hex-tiling & Laplacian texture blending</div><p>A plugin concept for real-time hex-tiling to help create procedurally generated environments. I lead project planning and coordination, co-develop the work with my group, and write the research paper.</p><div class="project-bottom"><span><b>Role</b> Project Manager</span><span class="project-date">Completed 2026</span></div></article>
         <aside class="future-work-note"><b>MORE WORK AHEAD</b><span>New projects will be added to this shelf as the archive grows.</span><i>FUTURE FILES · IN PROGRESS</i></aside></div><div class="drawer-rail" aria-hidden="true"></div></div>
         <div class="project-shelf personal-shelf"><div class="project-shelf-label"><span>02 · PERSONAL PROJECTS</span><small>MY OWN BUILDS / GROWING ARCHIVE</small></div><div class="project-scroll" role="region" tabindex="0" aria-label="Project shelf; scroll horizontally">
-          <article class="project personal-project" data-project-difficulty="Easy–Moderate" data-project-status="" data-project-date="Since Nov 2026" data-project-role="Designer & Front-end Developer" data-project-image="assets/projects/portfolio-preview.png" data-preview-title="John Leland Miñon · Portfolio" data-preview-kind="PERSONAL PROJECT" data-preview-copy="A character-select inspired personal portfolio, built to bring my experience, event work, and creative projects together in one place." role="button" tabindex="0" aria-haspopup="dialog"><div class="project-top"><span class="project-index">PERSONAL PROJECT 01</span><span class="project-badges"><span class="project-tag">In progress</span></span></div><span class='project-sticky-note' aria-hidden='true'><img src='assets/projects/portfolio-preview.png' alt=''></span><h3>Personal Portfolio</h3><div class="project-sub">A home for my work, story, and next chapter</div><p>This portfolio is my first personal project: a playful digital space to introduce myself, share the projects I’ve worked on, and make it easy to connect.</p><div class="project-bottom"><span><b>Focus</b> Design · front-end · storytelling</span><span class="project-date">Since Nov 2026</span></div></article>
+          <article class="project personal-project" data-project-difficulty="Moderately Easy" data-project-status="" data-project-date="Since Nov 2026" data-project-role="Designer & Front-end Developer" data-project-image="assets/projects/portfolio-preview.png" data-preview-title="John Leland Miñon · Portfolio" data-preview-kind="PERSONAL PROJECT" data-preview-copy="A character-select inspired personal portfolio, built to bring my experience, event work, and creative projects together in one place." role="button" tabindex="0" aria-haspopup="dialog"><div class="project-top"><span class="project-index">PERSONAL PROJECT 01</span><span class="project-badges"><span class="project-tag">In progress</span></span></div><span class='project-sticky-note' aria-hidden='true'><img src='assets/projects/portfolio-preview.png' alt=''></span><h3>Personal Portfolio</h3><div class="project-sub">A home for my work, story, and next chapter</div><p>This portfolio is my first personal project: a playful digital space to introduce myself, share the projects I’ve worked on, and make it easy to connect.</p><div class="project-bottom"><span><b>Focus</b> Design · front-end · storytelling</span><span class="project-date">Since Nov 2026</span></div></article>
         <aside class="future-work-note"><b>MORE PERSONAL PROJECTS AHEAD</b><span>This shelf is open for the next idea, experiment, or personal build.</span><i>FUTURE FILES · IN PROGRESS</i></aside></div><div class="drawer-rail" aria-hidden="true"></div></div>
         <article class="timeline-row featured-role project-manager-role"><div class="timeline-date">PROJECT LEAD<br><span class="role-badge">FEATURED ROLE</span></div><div class="timeline-content"><div><h3>Project Manager</h3><div class="org">HexLapTer · Undergraduate thesis project</div></div><p>I organize the team’s plans, track progress, and coordinate responsibilities while contributing to plugin development and the research paper.</p></div></article></div><div class="project-drawer-foot"><span>JOHN LELAND · WORK ARCHIVE</span><span>DRAWER 01 / 02 SHELVES</span></div></section>
             <div class="logistics-cabinet" id="logistics"><div class="cabinet-label"><span>02 / LOGISTICS & EVENTS</span><b>FIELD NOTES · SAGE</b></div><div class="project-drawer-heading chapter-drawer-heading"><div class="eyebrow">02 / Event operations</div><h2>Planning the details that <em>bring people together.</em></h2><p>Event files from my SAGE logistics work, with setup and coordination responsibilities documented below.</p></div>
@@ -358,14 +541,14 @@
         <div class="archive-heading"><div><div class="label">THE LOGISTICS ARCHIVE · 2025–2026</div><h3>Events I helped bring to life</h3></div><span>8 EVENT FILES</span></div>
         <div class="book-shelf-layout">
           <div class="book-shelf" role="group" aria-label="SAGE event book archive">
-            <button class="archive-book active" style="--book:#3478c4" type="button" data-preview-title="First Membership Drive" data-preview-kind="SAGE EVENT" data-preview-copy="Membership outreach event. Add a short event recap clip or photo sequence here when ready." data-detail-title="First Membership Drive" data-detail-copy="Member outreach · on-site logistics" data-detail-icon="✳"><i>01</i><b>Membership<br>Drive</b><small>SAGE · EVENT</small></button>
-            <button class="archive-book" style="--book:#31a6cd" type="button" data-preview-title="1st General Assembly" data-preview-kind="SAGE EVENT" data-preview-copy="SAGE general assembly. Add a short event recap clip or photo sequence here when ready." data-detail-title="1st General Assembly" data-detail-copy="Event setup · manpower coordination" data-detail-icon="◉"><i>02</i><b>1st General<br>Assembly</b><small>SAGE · EVENT</small></button>
-            <button class="archive-book" style="--book:#626ac8" type="button" data-preview-title="Respawn & Reconnect" data-preview-kind="SAGE EVENT" data-preview-copy="SAGE general assembly. Add a short event recap clip or photo sequence here when ready." data-detail-title="Respawn & Reconnect" data-detail-copy="General assembly · event logistics" data-detail-icon="↗"><i>03</i><b>Respawn &<br>Reconnect</b><small>SAGE · EVENT</small></button>
-            <button class="archive-book" style="--book:#168ab2" type="button" data-preview-title="SAGE Rewind: The Final Arc" data-preview-kind="SAGE EVENT" data-preview-copy="SAGE general assembly. Add a short event recap clip or photo sequence here when ready." data-detail-title="SAGE Rewind: The Final Arc" data-detail-copy="General assembly · event logistics" data-detail-icon="✦"><i>04</i><b>SAGE Rewind<br>Final Arc</b><small>SAGE · EVENT</small></button>
-            <button class="archive-book" style="--book:#314f9a" type="button" data-preview-title="Indies Ascent" data-preview-kind="SAGE EVENT" data-preview-copy="Indie games event. Add a short event recap clip or photo sequence here when ready." data-detail-title="Indies Ascent" data-detail-copy="Partner coordination · venue setup" data-detail-icon="⌁"><i>05</i><b>Indies<br>Ascent</b><small>SAGE · EVENT</small></button>
-            <button class="archive-book" style="--book:#658bd1" type="button" data-preview-title="Dungeons & Dragons Workshop" data-preview-kind="SAGE EVENT" data-preview-copy="Tabletop role-playing workshop. Add a short event recap clip or photo sequence here when ready." data-detail-title="Dungeons & Dragons Workshop" data-detail-copy="Workshop support · room logistics" data-detail-icon="♜"><i>06</i><b>Dungeons &<br>Dragons</b><small>SAGE · EVENT</small></button>
-            <button class="archive-book" style="--book:#254477" type="button" data-preview-title="Magic: The Gathering Workshop" data-preview-kind="SAGE EVENT" data-preview-copy="Trading card game workshop. Add a short event recap clip or photo sequence here when ready." data-detail-title="Magic: The Gathering Workshop" data-detail-copy="Workshop support · room logistics" data-detail-icon="✧"><i>07</i><b>Magic: The<br>Gathering</b><small>SAGE · EVENT</small></button>
-            <button class="archive-book" style="--book:#1687cf" type="button" data-preview-title="Pokémon TCG Workshop" data-preview-kind="SAGE EVENT" data-preview-copy="Trading card game workshop. Add a short event recap clip or photo sequence here when ready." data-detail-title="Pokémon TCG Workshop" data-detail-copy="Workshop support · room logistics" data-detail-icon="◈"><i>08</i><b>Pokémon<br>TCG</b><small>SAGE · EVENT</small></button>
+            <button class="archive-book active" style="--book:#3478c4" type="button" data-event-difficulty="Moderate" data-event-month="September" data-preview-title="First Membership Drive" data-preview-kind="SAGE EVENT" data-preview-copy="Membership outreach event. Add a short event recap clip or photo sequence here when ready." data-detail-title="First Membership Drive" data-detail-copy="Member outreach · on-site logistics" data-detail-icon="✳"><i>01</i><b>Membership<br>Drive</b><small>SAGE · EVENT</small></button>
+            <button class="archive-book" style="--book:#31a6cd" type="button" data-event-difficulty="Easy" data-event-month="October" data-preview-title="1st General Assembly" data-preview-kind="SAGE EVENT" data-preview-copy="SAGE general assembly. Add a short event recap clip or photo sequence here when ready." data-detail-title="1st General Assembly" data-detail-copy="Event setup · manpower coordination" data-detail-icon="◉"><i>02</i><b>1st General<br>Assembly</b><small>SAGE · EVENT</small></button>
+            <button class="archive-book" style="--book:#626ac8" type="button" data-event-difficulty="Moderately Difficult" data-event-month="April" data-preview-title="Respawn & Reconnect" data-preview-kind="SAGE EVENT" data-preview-copy="SAGE general assembly. Add a short event recap clip or photo sequence here when ready." data-detail-title="Respawn & Reconnect" data-detail-copy="General assembly · event logistics" data-detail-icon="↗"><i>03</i><b>Respawn &<br>Reconnect</b><small>SAGE · EVENT</small></button>
+            <button class="archive-book" style="--book:#168ab2" type="button" data-event-difficulty="Difficult" data-event-month="July" data-preview-title="SAGE Rewind: The Final Arc" data-preview-kind="SAGE EVENT" data-preview-copy="SAGE general assembly. Add a short event recap clip or photo sequence here when ready." data-detail-title="SAGE Rewind: The Final Arc" data-detail-copy="General assembly · event logistics" data-detail-icon="✦"><i>04</i><b>SAGE Rewind<br>Final Arc</b><small>SAGE · EVENT</small></button>
+            <button class="archive-book" style="--book:#314f9a" type="button" data-event-difficulty="Easy" data-event-month="March" data-preview-title="Indies Ascent" data-preview-kind="SAGE EVENT" data-preview-copy="Indie games event. Add a short event recap clip or photo sequence here when ready." data-detail-title="Indies Ascent" data-detail-copy="Partner coordination · venue setup" data-detail-icon="⌁"><i>05</i><b>Indies<br>Ascent</b><small>SAGE · EVENT</small></button>
+            <button class="archive-book" style="--book:#658bd1" type="button" data-event-difficulty="Moderate" data-event-month="January" data-preview-title="Dungeons & Dragons Workshop" data-preview-kind="SAGE EVENT" data-preview-copy="Tabletop role-playing workshop. Add a short event recap clip or photo sequence here when ready." data-detail-title="Dungeons & Dragons Workshop" data-detail-copy="Workshop support · room logistics" data-detail-icon="♜"><i>06</i><b>Dungeons &<br>Dragons</b><small>SAGE · EVENT</small></button>
+            <button class="archive-book" style="--book:#254477" type="button" data-event-difficulty="Easy" data-event-month="March" data-preview-title="Magic: The Gathering Workshop" data-preview-kind="SAGE EVENT" data-preview-copy="Trading card game workshop. Add a short event recap clip or photo sequence here when ready." data-detail-title="Magic: The Gathering Workshop" data-detail-copy="Workshop support · room logistics" data-detail-icon="✧"><i>07</i><b>Magic: The<br>Gathering</b><small>SAGE · EVENT</small></button>
+            <button class="archive-book" style="--book:#1687cf" type="button" data-event-difficulty="Easy" data-event-month="July" data-preview-title="Pokémon TCG Workshop" data-preview-kind="SAGE EVENT" data-preview-copy="Trading card game workshop. Add a short event recap clip or photo sequence here when ready." data-detail-title="Pokémon TCG Workshop" data-detail-copy="Workshop support · room logistics" data-detail-icon="◈"><i>08</i><b>Pokémon<br>TCG</b><small>SAGE · EVENT</small></button>
           </div>
           <div class="book-preview" aria-live="polite"><div class="book-preview-cover"><span id="eventPreviewNo">EVENT FILE / 01</span><img id="eventPreviewImage" class="event-preview-photo" src="assets/events/membership-drive/01.jpg" alt="First Membership Drive event preview"><div><h4 id="eventPreviewTitle">First Membership Drive</h4><p id="eventPreviewCopy">Member outreach · on-site logistics</p></div><small>HOVER TO PREVIEW<br>SELECT TO OPEN PLAYER ↗</small></div></div>
         </div>
@@ -399,24 +582,24 @@
       @media(prefers-reduced-motion:reduce){.skills-layout .chip-certified:after{animation:none;display:none}}
       .cert ul{margin:0;padding-left:17px;display:grid;gap:2px}.cert li{padding-left:1px}.cert li::marker{color:#2876a7}
     </style>
-    <section class="wrap" id="toolkit"><div class="section-head"><div class="eyebrow">03 / Toolkit</div><h2>How I <em>work</em> and what I’m learning.</h2></div>
+    <section class="wrap" id="toolkit"><div class="section-head"><div class="eyebrow">03 / Skills</div><h2>Skills I’ve <em>learned</em> and keep building.</h2></div>
       <div class="skill-legend" aria-label="Skill learning categories"><span><i class="legend-swatch legend-certified"></i>With certifications</span><span><i class="legend-swatch legend-course"></i>Course learned</span><span><i class="legend-swatch legend-self"></i>Self-taught</span></div>
       <div class="skills-layout">
         <div class="skill-card"><h3>Project & people</h3><div class="chips"><span class="chip chip-certified" style="--shine-delay:0s">Project management</span><span class="chip chip-self">Team leadership</span><span class="chip chip-self">Planning & scheduling</span><span class="chip chip-self">Event logistics</span><span class="chip chip-self">Documentation</span></div></div>
-        <div class="skill-card"><h3>Development</h3><div class="chips"><span class="chip chip-certified" style="--shine-delay:.9s">Python</span><span class="chip chip-certified" style="--shine-delay:1.8s">SQL</span><span class="chip chip-course">C++</span><span class="chip chip-course">Java</span><span class="chip chip-course">C#</span><span class="chip chip-certified" style="--shine-delay:2.7s">MATLAB</span><span class="chip chip-course">Unity</span><span class="chip chip-certified" style="--shine-delay:3.6s">Git</span></div></div>
+        <div class="skill-card"><h3>Development</h3><div class="chips"><span class="chip chip-certified" style="--shine-delay:.9s">Python</span><span class="chip chip-certified" style="--shine-delay:1.8s">SQL</span><span class="chip chip-course">C</span><span class="chip chip-course">C++</span><span class="chip chip-course">Java</span><span class="chip chip-course">C#</span><span class="chip chip-course">Kotlin</span><span class="chip chip-course">PHP</span><span class="chip chip-certified" style="--shine-delay:2.7s">MATLAB</span><span class="chip chip-course">Unity</span><span class="chip chip-certified" style="--shine-delay:3.6s">Git</span></div></div>
         <div class="skill-card"><h3>Research & AI</h3><div class="chips"><span class="chip chip-course">ISO/IEC 25010</span><span class="chip chip-course">Statistical analysis</span><span class="chip chip-course">Technical writing</span><span class="chip chip-certified" style="--shine-delay:4.5s">Claude</span><span class="chip chip-certified" style="--shine-delay:5.4s">Claude Code</span><span class="chip chip-certified" style="--shine-delay:6.3s">Claude API</span><span class="chip chip-self">ChatGPT</span><span class="chip chip-self">Codex</span><span class="chip chip-self">LM Studio</span></div></div>
-        <div class="skill-card"><h3>Creative & productivity</h3><div class="chips"><span class="chip chip-self">CapCut PC</span><span class="chip chip-self">Canva</span><span class="chip chip-course">Microsoft Office</span><span class="chip chip-certified" style="--shine-delay:7.2s">VS Code</span><span class="chip chip-course">Google Workspace</span></div></div>
+        <div class="skill-card"><h3>Creative & productivity</h3><div class="chips"><span class="chip chip-self">CapCut PC</span><span class="chip chip-self">Canva</span><span class="chip chip-course">Figma</span><span class="chip chip-self">Notion</span><span class="chip chip-course">Microsoft Office</span><span class="chip chip-certified" style="--shine-delay:7.2s">VS Code</span><span class="chip chip-course">Google Workspace</span></div></div>
       </div>
     </section>
-    <section class="cred"><div class="wrap cred-inner"><div class="cred-intro"><div class="eyebrow">04 / Ongoing learning</div><h2>Curious by<br><em>certification.</em></h2><p>Building a stronger toolkit, one course and credential at a time.</p><span class="cred-mark">LEARNING<br>LOG · 06</span></div><div class="certs">
-      <div class="cert"><small>Oct 2026 · Anthropic Claude Academy</small><ul><li>Claude 101</li><li>Claude Code 101</li><li>AI Fluency</li><li>Building with the Claude API</li></ul></div>
-      <div class="cert"><small>Mar 2026 · PMI</small><ul><li>Project Management Ready</li></ul></div>
-      <div class="cert"><small>Jul 2025 · Pearson</small><ul><li>IT Specialist: Python</li></ul></div>
-      <div class="cert"><small>Aug 2025 · Cisco</small><ul><li>Introduction to Networking</li></ul></div>
-      <div class="cert"><small>Oct 2026 · HackerRank</small><ul><li>SQL Basic & Advanced</li></ul></div>
-      <div class="cert"><small>Nov 2025 · LinkedIn Learning</small><ul><li>Agile Software Development</li><li>Git with VS Code</li></ul></div>
+    <section class="cred" id="certifications"><div class="wrap cred-inner"><div class="cred-intro"><div class="eyebrow">04 / Certifications</div><h2>Credentials<br><em>on the wall.</em></h2><p>Courses and certifications that keep expanding my skills.</p></div><div class="certs">
+      <div class="cert"><h3>Anthropic Claude Academy</h3><small>OCT 2026</small><ul><li>Claude 101</li><li>Claude Code 101</li><li>AI Fluency</li><li>Building with the Claude API</li></ul></div>
+      <div class="cert"><h3>PMI</h3><small>MAR 2026</small><ul><li>Project Management Ready</li></ul></div>
+      <div class="cert"><h3>Pearson</h3><small>JUL 2025</small><ul><li>IT Specialist: Python</li></ul></div>
+      <div class="cert"><h3>Cisco</h3><small>AUG 2025</small><ul><li>Introduction to Networking</li></ul></div>
+      <div class="cert"><h3>HackerRank</h3><small>OCT 2026</small><ul><li>SQL Basic & Advanced</li></ul></div>
+      <div class="cert"><h3>LinkedIn Learning</h3><small>NOV 2025</small><ul><li>Agile Software Development</li><li>Git with VS Code</li></ul></div>
     </div></div></section>
-    <section class="resume-section" id="resume"><div class="wrap resume-layout"><div class="resume-intro"><div class="eyebrow">RESUME / DOWNLOAD <span class="resume-status">LATEST FILE</span></div><h2>Software Engineering<br><em>student & project lead.</em></h2><p>Fourth-year Computer Science student at FEU Tech seeking an internship in project coordination or software development. The CV highlights HexLapTer project management, SAGE logistics, technical skills, and certifications.</p><div class="resume-facts"><span><b>01</b> PROJECT LEADERSHIP</span><span><b>02</b> EVENT LOGISTICS</span><span><b>03</b> SOFTWARE ENGINEERING</span></div><div class="resume-actions"><a class="resume-download" href="assets/resume/john-minon-cv.pdf" target="_blank" rel="noopener">PREVIEW FULL CV ↗</a><a class="resume-download resume-download-secondary" href="assets/resume/john-minon-cv.pdf" download>DOWNLOAD CV ↓</a></div></div><a class="resume-preview" href="assets/resume/john-minon-cv.pdf" target="_blank" rel="noopener" aria-label="Open full CV in a new tab"><div class="resume-preview-toolbar"><span>JOHN MINON · CURRICULUM VITAE</span><b>OPEN FILE ↗</b></div><div class="resume-preview-window"><img src="assets/resume/cv-preview.png" alt="Preview of John Leland G. Miñon's CV, including profile, education, skills, projects, leadership experience, and certifications"></div><span class="resume-placeholder-label">SELECT TO VIEW FULL DOCUMENT</span></a></div></section>
+    <div class="desk-zone"><section class="resume-section" id="resume"><div class="wrap resume-layout"><div class="resume-intro"><div class="eyebrow">RESUME / DOWNLOAD <span class="resume-status">LATEST FILE</span></div><h2>Software Engineering<br><em>student & project lead.</em></h2><p>Fourth-year Computer Science student at FEU Tech seeking an internship in project coordination or software development. The CV highlights HexLapTer project management, SAGE logistics, technical skills, and certifications.</p><div class="resume-facts"><span><b>01</b> PROJECT LEADERSHIP</span><span><b>02</b> EVENT LOGISTICS</span><span><b>03</b> SOFTWARE ENGINEERING</span></div><div class="resume-actions"><a class="resume-download" href="assets/resume/john-minon-cv.pdf" target="_blank" rel="noopener">PREVIEW FULL CV ↗</a><a class="resume-download resume-download-secondary" href="assets/resume/john-minon-cv.pdf" download>DOWNLOAD CV ↓</a></div></div><a class="resume-preview" href="assets/resume/john-minon-cv.pdf" target="_blank" rel="noopener" aria-label="Open full CV in a new tab"><div class="resume-preview-toolbar"><span>JOHN MINON · CURRICULUM VITAE</span><b>OPEN FILE ↗</b></div><div class="resume-preview-window"><img src="assets/resume/cv-preview.png" alt="Preview of John Leland G. Miñon's CV, including profile, education, skills, projects, leadership experience, and certifications"></div><span class="resume-placeholder-label">SELECT TO VIEW FULL DOCUMENT</span></a></div></section>
     <section class="wrap contact" id="contact"><div class="contact-panel"><div class="contact-copy"><div class="eyebrow">05 / Let’s connect</div><h2>Have a good<br>project in mind?</h2><p>I’m open to internship opportunities in project coordination and software development. If my background could be a fit for your team, I’d love to hear from you.</p></div><div class="contact-links">
 <a href="mailto:jgminon@fit.edu.ph"><span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8h18v12H3zM3 9l9 6 9-6M7 8V5h10v3"/></svg></span><span>jgminon@fit.edu.ph ↗</span></a>
 <a href="mailto:jonhleland.minon@gmail.com"><span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 6h18v13H3zM3 7l9 7 9-7"/></svg></span><span>jonhleland.minon@gmail.com ↗</span></a>
@@ -431,7 +614,7 @@
 <a href="https://www.linkedin.com/in/john-leland-mi%C3%B1on-603132346" target="_blank" rel="noreferrer" aria-label="LinkedIn profile" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8.5H2V21h3zM3.5 2A1.8 1.8 0 1 0 3.5 5.6 1.8 1.8 0 0 0 3.5 2ZM8 8.5h3v1.7c.8-1.3 2-2 3.8-2 3.7 0 4.2 2.4 4.2 5.4V21h-3v-6.6c0-1.6 0-3.6-2.2-3.6s-2.6 1.7-2.6 3.5V21H8z"/></svg></a>
 <a href="https://www.facebook.com/johnleland.minon.50/" target="_blank" rel="noreferrer" aria-label="Facebook profile" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H8v3.1h2.8v8z"/></svg></a>
 <a href="https://www.instagram.com/_lelannd/" target="_blank" rel="noreferrer" aria-label="Instagram profile" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/></svg></a>
-</div></div></figure></div></section>
+</div></div></figure></div></section></div>
   </main>
   <footer class="wrap footer"><span>© 2026 John Leland G. Miñon</span><span>Designed as a first draft · Manila, Philippines</span><a href="#home">Back to top ↑</a></footer>
 
@@ -442,7 +625,7 @@
   <div class="preview-overlay" id="previewOverlay" hidden>
     <section class="preview-window" role="dialog" aria-modal="true" aria-labelledby="previewTitle" aria-describedby="previewCopy">
       <div class="preview-top"><span class="preview-file-label">PORTFOLIO FILE / PLAYER VIEW</span><button id="closePreview" class="preview-close" type="button" aria-label="Close preview">×</button></div>
-      <div class="preview-content"><div class="preview-copy"><div id="previewKind" class="label">PROJECT FILE</div><h2 id="previewTitle">Preview title</h2><p id="previewCopy"></p><div class="project-detail-extra" id="projectDetailExtra" hidden><div class="detail-status-row"><span class="detail-status" id="detailStatus"></span><span class="detail-difficulty" id="detailDifficulty"></span></div><div class="difficulty-meter"><div class="difficulty-meter-head"><b>DIFFICULTY</b><span id="difficultyLabel"></span></div><div class="difficulty-track"><i id="difficultyFill"></i></div></div><p class="detail-role"><b>Role</b> <span id="detailRole"></span></p><div class="project-gallery" aria-label="Single project preview image"><div class="project-gallery-main"><img id="projectPreviewImage" alt="" hidden><span id="projectImagePlaceholder">PROJECT IMAGE PREVIEW</span></div></div></div><div class="event-detail-extra" id="eventDetailExtra" hidden><div class="event-date-pill" id="eventDate">DATE HELD · ADD DATE</div><div class="difficulty-meter"><div class="difficulty-meter-head"><b>EVENT DIFFICULTY</b><span>Moderate · placeholder</span></div><div class="difficulty-track"><i class="fill-moderate" style="width:52%"></i></div></div><div class="event-gallery" aria-label="Three event photo previews"><div class="project-gallery-main"><img id="eventMainImage" alt=""></div><div class="project-gallery-sub"><span><img id="eventSubImage1" alt=""></span><span><img id="eventSubImage2" alt=""></span></div></div><div class="event-socials"><span>FULL EVENT DETAILS</span><a id="eventFacebookLink" href="#" target="_blank" rel="noopener" aria-label="Open Facebook event post">f <small>View Facebook post ↗</small></a></div></div></div>
+      <div class="preview-content"><div class="preview-copy"><div id="previewKind" class="label">PROJECT FILE</div><h2 id="previewTitle">Preview title</h2><p id="previewCopy"></p><div class="project-detail-extra" id="projectDetailExtra" hidden><div class="detail-status-row"><span class="detail-status" id="detailStatus"></span><span class="detail-difficulty" id="detailDifficulty"></span></div><div class="difficulty-meter"><div class="difficulty-meter-head"><b>PROJECT LEVEL</b><span id="difficultyLabel"></span></div><div class="difficulty-track"><i id="difficultyFill"></i></div></div><p class="detail-role"><b>Role</b> <span id="detailRole"></span></p><div class="project-gallery" aria-label="Single project preview image"><div class="project-gallery-main"><img id="projectPreviewImage" alt="" hidden><span id="projectImagePlaceholder">PROJECT IMAGE PREVIEW</span></div></div></div><div class="event-detail-extra" id="eventDetailExtra" hidden><div class="difficulty-meter"><div class="difficulty-meter-head"><b>EVENT DIFFICULTY</b><span id="eventDifficultyLabel">Moderate · September</span></div><div class="difficulty-track"><i id="eventDifficultyFill" class="fill-moderate" style="width:52%"></i></div></div><div class="event-gallery" aria-label="Three event photo previews"><div class="project-gallery-main"><img id="eventMainImage" alt=""></div><div class="project-gallery-sub"><span><img id="eventSubImage1" alt=""></span><span><img id="eventSubImage2" alt=""></span></div></div><div class="event-socials"><span>FULL EVENT DETAILS</span><a id="eventFacebookLink" href="#" target="_blank" rel="noopener" aria-label="Open Facebook event post">f <small>View Facebook post ↗</small></a></div></div></div>
         <div class="tv-set"><div class="tv-antenna"></div><div class="tv-screen"><div class="player-frame"><div id="playerPlaceholder" class="player-placeholder"><div class="player-orbit"><span>▶</span></div><b>YOUTUBE PLAYER</b><p>Open a cassette to play its video here.</p></div><iframe id="previewFrame" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen hidden></iframe></div></div><div class="tv-controls"><span>PLAYBACK / 001</span><i></i><i></i><b>POWER</b></div></div>
       </div><div class="preview-bottom"><span>FILE STATUS <b id="playerStatus">PLAYER STANDBY</b></span><span>ESC / CLOSE TO RETURN</span></div>
     </section>
@@ -501,8 +684,9 @@
       badges.append(statusBadge);
     }
     const difficultyBadge = document.createElement('span');
-    difficultyBadge.className = `project-difficulty difficulty-${card.dataset.projectDifficulty.toLowerCase().replace('–','-')}`;
-    difficultyBadge.textContent = `${card.dataset.projectDifficulty} difficulty`;
+    const difficultyKey = card.dataset.projectDifficulty.toLowerCase().replace(/[–\s]+/g,'-');
+    difficultyBadge.className = `project-difficulty difficulty-${difficultyKey}`;
+    difficultyBadge.textContent = card.dataset.projectDifficulty;
     badges.append(difficultyBadge);
   });
   const overlay = document.getElementById('previewOverlay');
@@ -512,7 +696,8 @@
   const copy = document.getElementById('previewCopy');
   const projectExtra = document.getElementById('projectDetailExtra');
   const eventExtra = document.getElementById('eventDetailExtra');
-  const eventDate = document.getElementById('eventDate');
+  const eventDifficultyLabel = document.getElementById('eventDifficultyLabel');
+  const eventDifficultyFill = document.getElementById('eventDifficultyFill');
   const detailStatus = document.getElementById('detailStatus');
   const detailDifficulty = document.getElementById('detailDifficulty');
   const detailDate = document.createElement('span');
@@ -594,10 +779,12 @@
       detailStatus.textContent = projectStatus;
       detailStatus.className = projectStatus ? `detail-status status-${projectStatus.toLowerCase()}` : 'detail-status';
       detailDate.textContent = card.dataset.projectDate;
-      detailDifficulty.textContent = difficulty; detailDifficulty.className = `detail-difficulty difficulty-${difficulty.toLowerCase().replace('–','-')}`;
+      const difficultyKey = difficulty.toLowerCase().replace(/[–\s]+/g,'-');
+      detailDifficulty.textContent = difficulty; detailDifficulty.className = `detail-difficulty difficulty-${difficultyKey}`;
       difficultyLabel.textContent = difficulty;
-      difficultyFill.style.width = difficulty === 'Difficult' ? '88%' : difficulty === 'Easy' ? '28%' : '52%';
-      difficultyFill.className = `fill-${difficulty.toLowerCase().replace('–','-')}`;
+      const difficultyWidths = {easy:'28%','moderately-easy':'42%',moderate:'52%','moderately-difficult':'72%',difficult:'88%'};
+      difficultyFill.style.width = difficultyWidths[difficultyKey] || '52%';
+      difficultyFill.className = `fill-${difficultyKey}`;
       detailRole.textContent = card.dataset.projectRole;
       const imageSrc = card.dataset.projectImage;
       projectPreviewImage.hidden = !imageSrc;
@@ -607,7 +794,13 @@
     if (isEvent) {
       copy.textContent = eventDescriptions[card.dataset.previewTitle] || card.dataset.previewCopy;
       previewTvSet.append(eventGallery);
-      eventDate.textContent = card.dataset.eventDate || 'DATE HELD · ADD DATE';
+      const eventDifficulty = card.dataset.eventDifficulty || 'Moderate';
+      const eventMonth = card.dataset.eventMonth || '';
+      const eventDifficultyKey = eventDifficulty.toLowerCase().replace(/[–\s]+/g,'-');
+      const eventDifficultyWidths = {easy:'28%',moderate:'52%','moderately-difficult':'72%',difficult:'88%'};
+      eventDifficultyLabel.textContent = eventMonth ? `${eventDifficulty} · ${eventMonth}` : eventDifficulty;
+      eventDifficultyFill.className = `fill-${eventDifficultyKey}`;
+      eventDifficultyFill.style.width = eventDifficultyWidths[eventDifficultyKey] || '52%';
       const media = eventMedia[card.dataset.previewTitle];
       if (media) {
         [eventMainImage, ...eventSubImages].forEach((image,index) => { image.src = media.images[index]; image.alt = `${card.dataset.previewTitle} event photo ${index + 1}`; });
@@ -671,5 +864,491 @@ if (previousFocus) previousFocus.focus();
 .contact-links a span:last-child{display:block;white-space:nowrap}
 .contact-links a small{font-size:9px;font-weight:500;opacity:.72}
 @media(max-width:600px){.contact-panel .contact-links a{gap:9px;font-size:12px}}
-</style></body>
+</style>
+<style>
+  /* Site-wide warm archive palette: cream paper, walnut ink, and honey accents. */
+  :root{--paper:#f5ecdf;--blue-paper:#eadbc6;--blue-card:#fffaf1;--ink:#36271e;--green:#5a3b2b;--lime:#e4b75f;--muted:#806b5a;--line:#ddcbb4;--white:#fffaf1}
+  html{scrollbar-color:#a47c55 #f4eadb}
+  body{background-color:#f4eadb;background-image:radial-gradient(#d4c0a5 0.7px,transparent .7px);color:#36271e}
+  ::selection{background:#e7c77f;color:#38281e}
+  .topbar{background:#fffaf1e8;border-color:#fffdf7;box-shadow:2px 4px 0 #d8c4a8;color:#594433}
+  .brand span{color:#a66e42}
+  .nav{color:#705842}.nav a:hover,.text-link:hover,.nav a[aria-current="location"]{color:#a46639}
+  .nav .contact-link{color:#563b2b;border-color:#8e6847}
+  .dot,.signal-dot{background:#c88b4d;box-shadow:0 0 0 4px #ead9bd}
+  .hero:before{background:#ead8bd}
+  .hero h1,.character-panel h1,.section-head h2,.project-drawer-heading h2,.chapter-drawer-heading h2{color:#36271e}
+  .hero h1 em,.section-head h2 em{color:#986744}
+  .intro,.about-copy,.fact span,.project-bottom,.resume-intro p{color:#705f50}
+  .actions .button,.resume-download{background:#62432f;color:#fff9ef;box-shadow:3px 4px 0 #c3a27e}
+  .actions .button:hover,.resume-download:hover{background:#795338}
+  .text-link{border-color:#b79b79}
+  .quickfacts,.stats-board,.character-stage,.character-stage .loadout-slot,.project,.video-card,.event-card{background:#fffaf1;border-color:#e5d6c1;box-shadow:5px 7px 0 #cfb99a,9px 12px 0 #fffdf7}
+  .fact{border-color:#e5d6c1}
+  .class-label,.portrait-caption{background:#fffaf1;color:#765e45;box-shadow:3px 4px 0 #d1b998}
+  .class-label b,.stats-title,.stat-row b,.character-panel h1 em{color:#8a5c38}
+  .portrait-frame,.character-stage .portrait-frame{background:#ead9bf;border-color:#fffaf1;box-shadow:9px 12px 0 #c3a47d,14px 18px 0 #fffdf7}
+  .portrait-sticker,.stage-stamp{background:#e8c46e;color:#62411f;box-shadow:5px 7px 0 #c4a47b}
+  .stats-board:before{background:#e4b75f;color:#583c27}
+  .stats-title{border-color:#ddc9aa}.stat-row{color:#705f50}.stat-track{background:#eadfce}.stat-track i{background:linear-gradient(90deg,#a87547,#dfb75f);box-shadow:2px 0 #fff9ef}.stats-note,.kicker-id{color:#8d7864}
+  .character-stage:before{background:#c49a68}.stage-meta,.stage-caption{color:#775d43}.stage-meta span:last-child{color:#976b43}
+  .character-panel h1 em{color:#a36f46;text-shadow:3px 3px 0 #ead9bf}
+  .quickfacts{background:#fffaf1;box-shadow:5px 7px 0 #cfb99a,9px 12px 0 #fffdf7}
+  .dark-section{background-color:#54392b;background-image:radial-gradient(#fff4e11c .7px,transparent .7px);color:#fff8ec}
+  .dark-section:before{background:#76513b}.dark-section:after{background:#9c704b}
+  .dark-section .eyebrow,.dark-section .label,.timeline-date{color:#e1c9a8}
+  .dark-section .section-head h2,.dark-section .timeline-content h3,.dark-section .archive-heading h3{color:#fff8ec}
+  .dark-section .section-head h2 em{color:#e6c273}
+  .dark-section .section-head>.about-copy,.timeline-content .org,.timeline-content p{color:#eadbc6}
+  .timeline,.timeline-row,.timeline-secondary{border-color:#ffffff38}
+  .featured-role{background:#735039;box-shadow:5px 7px 0 #39261c;border-left-color:#e4b75f}
+  .role-badge{background:#e4b75f;color:#55391f;box-shadow:3px 3px 0 #f8e8c5}
+  .project-cabinet,.logistics-cabinet,.video-cabinet{background:linear-gradient(120deg,#5a3b2b,#704c35 62%,#896344)!important;color:#fff8ec}
+  .project-cabinet .cabinet-label,.logistics-cabinet .cabinet-label,.video-cabinet .cabinet-label{color:#f0d7ae}
+  .project-drawer-heading,.chapter-drawer-heading{background:linear-gradient(90deg,#f4e7d2 0%,#f4e7d2 42%,rgba(244,231,210,.86) 72%,rgba(244,231,210,.32) 100%)!important;border-color:#fff9ef!important;border-left-color:#bd8956!important;box-shadow:5px 7px 0 #3b281d!important}
+  .project-drawer-heading h2,.chapter-drawer-heading h2{color:#3e2c21!important}
+  .project-drawer-heading h2 em,.chapter-drawer-heading h2 em{color:#9c6a42!important}
+  .project-drawer-heading .eyebrow,.chapter-drawer-heading .eyebrow{color:#806044!important}
+  .project-drawer-heading p,.chapter-drawer-heading p{color:#695644!important}
+  .project-shelf{background:#d8c09e;border-color:#f6ead6;box-shadow:inset 0 0 0 5px #e9d8bd,6px 9px 0 #39261c}
+  .project-shelf-label,.project-drawer-foot{color:#f3dfbe}
+  .project{background:#fffaf1;color:#3c2b20;box-shadow:5px 7px 0 #ba9871,9px 12px 0 #fffdf7}
+  .project h3,.project-bottom b{color:#412e21}.project-sub,.project-index{color:#806b58}.project-bottom{border-color:#e4d5c0;color:#765f49}
+  .project-tag{background:#e8d2ad;color:#654827}
+  .project[data-preview-title="WAILS"] .project-tag{background:#dfb85e;color:#5b3b1d;box-shadow:2px 3px 0 #b28b48}
+  .project-shelf .project[data-preview-title="HexLapTer"] .project-tag{background:#d8c09e;color:#59402d;box-shadow:3px 3px 0 #ae8e69}
+  .project-shelf .personal-project .project-tag{background:#cbb18c;color:#543c29;box-shadow:3px 3px 0 #9f805b}
+  .future-work-note{background:#6a4933;color:#fff7e9;border-color:#e1c49c;box-shadow:5px 7px 0 #38271d}
+  .future-work-note small,.future-work-note .label{color:#f0d393}
+  .project-manager-role{border-color:#9c704b}
+  .archive-block{background:#e8d8c0;border-color:#f4e8d6;box-shadow:inset 0 0 0 5px #f4e8d6,6px 9px 0 #39261c}
+  .archive-heading .label,.archive-heading>span{color:#795c40}
+  .archive-heading h3{color:#422f22}
+  .event-archive .archive-heading h3,.avp-archive .archive-heading h3{color:#422f22}
+  .book-shelf{background:#765039;border-color:#c6a77e;box-shadow:0 8px 0 #492f20}
+  .archive-book{--book:#765039!important;background:linear-gradient(145deg,var(--book),#513625)!important;color:#fff5e5;border-color:#e1c49b;box-shadow:4px 6px 0 #432d20}
+  .archive-book:nth-child(3n + 2){--book:#986c47!important}.archive-book:nth-child(3n){--book:#684832!important}
+  .archive-book.active,.archive-book:hover,.archive-book:focus-visible{border-color:#f2d58e;box-shadow:5px 8px 0 #3b281b}
+  .book-preview{background:#fffaf1;border-color:#c9ab83;box-shadow:5px 7px 0 #ae8b63}
+  .book-preview-cover{background:#f4e7d2;border-color:#fffaf1}.book-preview-cover small,.book-preview-cover p{color:#745a3e}.book-preview-cover h4{color:#493322}
+  .event-file-meta,.event-file-actions,.event-preview-copy{color:#715c47}
+  .event-file-actions a{background:#e7d6bc;color:#583d27;border-color:#c9a77e}
+  .event-file-actions a:hover{background:#d9bd93}
+  .event-art{background-color:#987148}.art-blue,.art-sky,.art-violet,.art-cyan,.art-indigo,.art-periwinkle,.art-deep,.art-electric{background:linear-gradient(140deg,#b38555,#705039)}
+  .event-card{background:#fffaf1;box-shadow:3px 5px 0 #c5a783}.event-card:hover{box-shadow:8px 12px 0 #3d291d}.event-card h4{color:#503722}.event-card p{color:#79664f}
+  .video-card{background:#fffaf1;color:#493322;box-shadow:5px 7px 0 #c5a783}.video-card h4{color:#493322}.video-card p{color:#79664f}.video-card:hover{background:#fffdf7;box-shadow:8px 12px 0 #3d291d}
+  .video-art,.video-two{background:linear-gradient(135deg,#987148,#51382a)}.video-art .play{background:#e4b75f;color:#533a23;box-shadow:0 7px 26px #301e1570}
+  .cassette-shelf{background:#755039;border-color:#c49c6b;box-shadow:inset 0 -9px 0 #4e3527,0 10px 0 #3d291d}
+  .cassette{background:#ead9bf;color:#4f3927;box-shadow:5px 7px 0 #39261c}
+  .cassette-spine{background:#bd9466;color:#4c3523}.cassette-case{background:#ead9bf;border-color:#fff8e9;box-shadow:inset 0 0 0 5px #d5b58a}
+  .cassette-label:before{background:linear-gradient(135deg,rgba(255,250,241,.98),rgba(239,224,199,.96));border-color:#c5a477;border-left-color:#a9794d;box-shadow:3px 4px 0 #62452f}
+  .cassette-label{box-shadow:2px 3px 0 #b18f65}
+  .cassette-label small,.cassette-label b,.cassette-label i{color:#543a26}
+  .cassette-window{background:#67452f;border-color:#fff3df}.cassette-bottom{color:#74583d}
+  .cassette-hint{color:#f0d8b5}
+  .skill-legend{background:#fffaf1;border-left-color:#c28e55;box-shadow:3px 4px 0 #cbb18f;color:#6a5038}
+  .skills-layout .skill-card .chip-certified{background:#e8c979;color:#5b4024;box-shadow:3px 3px 0 #b08a49}
+  .skills-layout .skill-card .chip-certified:after{background:linear-gradient(90deg,transparent,rgba(255,250,241,.95),transparent)}
+  .skills-layout .skill-card .chip-course{background:#dbc6b1;color:#5a4031;box-shadow:3px 3px 0 #aa8b70}
+  .skills-layout .skill-card .chip-self{background:#c8c8a6;color:#4e5238;box-shadow:3px 3px 0 #94976c}
+  .legend-certified{background:#e8c979}.legend-course{background:#dbc6b1}.legend-self{background:#c8c8a6}
+  .skills-layout .skill-card{box-shadow:inset 0 0 0 2px #e0b27b,5px 7px 0 #a98258}
+  .skills-layout .skill-card:hover{box-shadow:inset 0 0 0 2px #e0b27b,7px 10px 0 #a98258}
+  .skills-layout .skill-card h3{background:#fffaf1;color:#493423;box-shadow:2px 3px 0 #835a3d}
+  .cred-mark,.resume-status{background:#e4b75f;color:#55391f;box-shadow:3px 4px 0 #7f5d3a}
+  #certifications .cert{border-color:#d0ae75;box-shadow:0 0 0 4px #fff8e8,5px 9px 0 #98744a,8px 13px 0 #ffffff9c}
+  #certifications .cert:after{color:#e7dcc2}
+  .resume-section:before{color:#f1dfc6}
+  .resume-intro h2{color:#3e2b20}.resume-intro h2 em{color:#986744}
+  .resume-facts{color:#765f49}.resume-facts b{background:#ead8bd;color:#805536}
+  .resume-download-secondary{background:#eadbc5;color:#59422e;border-color:#c9ae88}
+  .resume-preview-toolbar{background:#62432f;color:#fff2dc}.resume-preview-toolbar b{background:#dfb85e;color:#53391f}
+  .resume-preview-window{background:#f7efe3;border-color:#dfceb4;box-shadow:inset 0 0 0 5px #fffaf1}
+  .resume-preview:after{color:#80664a}.resume-placeholder-label{background:#62432fe8;color:#fff8ec;border-color:#d8b883;box-shadow:2px 3px 0 #a17b52}
+  .contact{background:#f4eadb}
+  .contact-panel{background:#f2e6d3;color:#38281e;border:1px solid #fff9ef;box-shadow:8px 10px 0 #c4a47d,13px 16px 0 #fffdf7}
+  .contact-panel:after{color:#a4774c26}
+  .contact-panel .eyebrow{color:#806044}.contact-panel h2{color:#3b291e;text-shadow:2px 3px 0 #d9c09d}.contact-panel p{color:#6d5946}
+  .contact-links a{color:#563d2a;border-color:#c5a882}.contact-links a:hover{color:#9e673e}
+  .contact-icon{color:#805735}.contact-cutout figcaption{color:#60442d}
+  .reach-bubble,.reach-bubble:before,.reach-bubble:after{background:#fffaf1;border-color:#d9bd93;box-shadow:3px 4px 0 #bd9667}
+  .reach-bubble .reach-icon{background:#f0dfc4;color:#65482d}
+  .footer{border-color:#dac8af;color:#806b59}.footer a{color:#6d4e34}
+  .scroll-progress{background:#dfbd78;box-shadow:0 1px 5px #80613b45}
+  .section-head h2{text-shadow:2px 2px 0 #e4d2b7}
+  /* Retint the remaining blue UI surfaces and small labels. */
+  .topbar.wrap{background:rgba(255,250,241,.95);border-bottom-color:#ddcbb4;box-shadow:0 5px 18px #7254371a}
+  .nav-link{color:#705842}.nav-link:hover{background:#efe2ce;color:#8b5f3a}
+  .nav .resume-nav{background:#efe2ce;color:#684a31;border-color:#ccb18e}
+  .nav .resume-nav:hover{background:#e2cfb2;color:#503824}
+  .nav .contact-link{background:#62432f;color:#fff8ec}.nav .contact-link:hover{background:#795338;color:#fff8ec}
+  .intro-screen{background:#38271eeF}.intro-folder{filter:drop-shadow(12px 16px 0 #261b14)}
+  .folder-back{background:#c79d6c;border-color:#f6e8d2;box-shadow:inset 0 0 0 7px #ae8254}
+  .folder-back>span:first-child{background:#e3c18a;color:#5b4027}.folder-back-mark{color:#61472f}
+  .folder-paper{background:#fffaf1;box-shadow:4px 6px 0 #a9835b}.folder-paper>small{color:#806044}
+  .folder-paper h2{color:#3d2c21}.folder-paper h2 em{color:#a06c43}.folder-paper p{color:#725e49}
+  .folder-paper button{background:#62432f;color:#fff8ec;box-shadow:4px 5px 0 #c3a27e}.folder-paper button b{color:#e4b75f}
+  .folder-cover{background:linear-gradient(145deg,#9b704b,#65452f);border-color:#ead8bd;box-shadow:inset 0 0 0 7px #ffffff20}
+  .folder-cover span,.folder-cover small{color:#f3dfbe}
+  .intro-load{background:#dfceb4}.intro-load span{background:#c28b4d}
+  .about-folder{background:#d5bb95;box-shadow:9px 12px 0 #ae895e,15px 18px 0 #fffaf1}
+  .folder-tab{background:#d5bb95;color:#64482f}.folder-tab span{color:#836544}
+  .folder-page{background:#fffaf1;box-shadow:inset 0 0 0 1px #ddcbb4}
+  .about-folder .about-copy{color:#705f50}.about-folder .about-copy h2{color:#36271e;text-shadow:2px 2px 0 #ead9bf}
+  .about-folder .about-copy h2 em{color:#9b6942}.folder-signoff{border-color:#dac5a5;color:#806c56}.folder-signoff b{color:#62452f}
+  .think-cutout{filter:drop-shadow(0 0 0 #fffaf1) drop-shadow(2px 0 0 #fffaf1) drop-shadow(-2px 0 0 #fffaf1) drop-shadow(0 2px 0 #fffaf1) drop-shadow(0 -2px 0 #fffaf1) drop-shadow(7px 9px 0 #c6a47a) drop-shadow(12px 14px 0 #ead9bf)}
+  .project-cabinet:before,.logistics-cabinet:before,.video-cabinet:before{background:repeating-linear-gradient(90deg,#d3b58a 0 28px,#9b744e 28px 32px);border-bottom-color:#ead8bd}
+  .project-drawer-foot{background:#3d2a20;color:#e5d1b2}.project-drawer-foot span:last-child{color:#e6bd68}
+  .project-shelf{background:linear-gradient(145deg,#e0c9a7,#c9ac82);border-color:#f7ead7;box-shadow:inset 0 0 0 5px #ead8bd,0 8px 0 #39261c}
+  .project-shelf-label{border-color:#b39168;color:#60452e}.project-shelf-label small{color:#80674e}
+  .project-scroll{scrollbar-color:#a47b52 #eadbc5}
+  .project-scroll:focus-visible{outline-color:#c19461}
+  .project-shelf .project:before{background:#ead9bf;border-color:#c9ae88;color:#72583d}
+  .project-shelf .project:hover:after,.project-shelf .project:focus-visible:after{background:#efe2ce;color:#674a30;box-shadow:2px 3px 0 #c9ae88}
+  .project-shelf .project h3,.project-shelf .project .project-bottom b{color:#412e21}
+  .project-shelf .project .project-sub,.project-shelf .project .project-index{color:#806b56}
+  .project-shelf .project p,.project-shelf .project .project-bottom{color:#705d49}
+  .project-shelf .project .project-bottom{border-color:#e4d5c0}
+  .project-cabinet .cabinet-label,.logistics-cabinet .cabinet-label,.video-cabinet .cabinet-label{color:#ead5b4}
+  .project-cabinet .cabinet-label b,.logistics-cabinet .cabinet-label b,.video-cabinet .cabinet-label b{color:#e6bd68}
+  .drawer-rail{background:linear-gradient(#9a7958,#c4a47e);box-shadow:0 4px 0 #826342}
+  .project-shelf .project{background:#fffaf1;color:#3c2b20}
+  .project-shelf .project h3,.project-shelf .project .project-bottom b{color:#412e21}
+  .project-shelf .project p{color:#705d49}
+  .project-shelf .project .project-sub,.project-shelf .project .project-index{color:#806b56}
+  .project-shelf .project .project-bottom{color:#705b45;border-color:#e4d5c0}
+  .project-shelf .project .project-tag{background:#e8d2ad;color:#654827}
+  .project-sticky-note{background:#e8c979;box-shadow:3px 5px 0 #b38d5c}.project-sticky-note:before{background:#fff8e7aa}
+  .project-status.status-ongoing{background:#e8edda;color:#59603d;box-shadow:3px 3px 0 #a9ad7a}
+  .project-status.status-completed{background:#e8ddc7;color:#674b2e;box-shadow:3px 3px 0 #b89b70}
+  .project-difficulty.difficulty-easy{background:#e8edda;color:#59603d;box-shadow:3px 3px 0 #a9ad7a}
+  .project-difficulty.difficulty-easy-moderate,.project-difficulty.difficulty-moderate{background:#f2dfae;color:#6b4c22;box-shadow:3px 3px 0 #c49d53}
+  .project-difficulty.difficulty-difficult{background:#ead0c4;color:#754632;box-shadow:3px 3px 0 #b37a5c}
+  .project-manager-role{background:linear-gradient(100deg,#76553b,#5d402e);border-left-color:#e4b75f;box-shadow:5px 6px 0 #39261c}
+  .project-manager-role .timeline-content h3{color:#fff8ec}.project-manager-role .timeline-content p{color:#f0dfc7}.project-manager-role .timeline-date{color:#ead4b2}
+  .archive-block{background:#eadbc5;border-color:#fff4e3;box-shadow:inset 0 0 0 5px #f5ead8,6px 9px 0 #39261c}
+  .book-shelf-layout{background:#4d3528;border-color:#a98259;box-shadow:7px 9px 0 #38271e}
+  .book-shelf{scrollbar-color:#c09b6d #684b35}
+  .archive-book{box-shadow:3px 2px 0 #39261b}.archive-book:hover,.archive-book:focus-visible,.archive-book.active{box-shadow:7px 10px 0 #39261b,0 0 0 1px #f1d69c}
+  .book-preview{background:#ead9bf}.book-preview:before{background:#c7a77d}
+  .book-preview-cover{background:linear-gradient(145deg,#fffaf1,#f0e3cd);color:#684d33;box-shadow:5px 6px 0 #ba9870}
+  .book-preview-cover>span{color:#82694e}.book-preview-cover div h4{color:#493322}.book-preview-cover div p{color:#79654d}.book-preview-cover>i{border-color:#bd966b;color:#8a5f38;background:#f0dfc4}
+  .shelf-base{background:#3c2a1f;color:#dfc7a5}.shelf-base span:last-child{color:#e6bd68}
+  .video-cabinet{background:linear-gradient(145deg,#60432f,#453024)!important;border-color:#b38c61}
+  .video-cabinet:before{background:repeating-linear-gradient(90deg,#c8a77c 0 28px,#8d6947 28px 32px)}
+  .video-cabinet .cabinet-label b,.video-cabinet .chapter-drawer-heading .eyebrow,.video-cabinet .chapter-drawer-heading h2 em{color:#e8c986}
+  .video-roles{border-color:#ffffff38}.video-roles .timeline-row{border-color:#ffffff38}.video-roles .timeline-content p,.video-roles .timeline-content .org{color:#eadbc6}
+  .secondary-role-badge{background:#e8ddc7;color:#674b2e;box-shadow:3px 3px 0 #483122}
+  .cassette-shelf{background:#765039}.cassette{border-left:7px solid #b98f61}
+  .cassette-spine{background:#bd9466;color:#4c3523}.cassette-case{background:linear-gradient(145deg,#f1e4cf,#d9c09b);border-color:#b79569;box-shadow:inset 0 0 0 5px #ead8bd}
+  .cassette-window{background:#62432f;border-color:#fff3df;box-shadow:inset 0 0 0 1px #ac875c}.cassette-window i{border-color:#e0c394}.cassette-window b{background:#dfb768}
+  .cassette-bottom{color:#74583d}.cassette-bottom span:last-child{color:#98643b}.cassette-hint:hover{color:#f0d8b5}
+  .cassette-note{color:#e7d3b5}.cassette:focus-visible,.archive-book:focus-visible{outline-color:#e6c273}
+  .contact-panel .contact-links a{color:#563d2a}
+  .reach-bubble{background:#fffaf1;border-color:#d9bd93;box-shadow:3px 4px 0 #bd9667}
+  .reach-bubble .reach-icon{background:#f0dfc4;color:#65482d}
+  .project-detail-link{background:#62432f;color:#fff8ec}.project-detail-link:hover{background:#795338}
+  .detail-status.status-ongoing{background:#e8edda;color:#59603d}
+  .detail-status.status-completed{background:#e8ddc7;color:#674b2e}
+  .detail-difficulty.difficulty-easy{background:#e8edda;color:#59603d}
+  .detail-difficulty.difficulty-easy-moderate,.detail-difficulty.difficulty-moderate{background:#f2dfae;color:#6b4c22}
+  .detail-difficulty.difficulty-difficult{background:#ead0c4;color:#754632}
+  .difficulty-meter{background:#f2e8d8;border-color:#d9c4a5}.difficulty-meter-head{color:#654a32}.difficulty-track{background:#e2d2bc}
+  .difficulty-track .fill-easy{background:#8f9a66}.difficulty-track .fill-easy-moderate{background:linear-gradient(90deg,#8f9a66,#dfb768)}.difficulty-track .fill-moderate{background:#d3a64e}.difficulty-track .fill-difficult{background:#b8755b}
+  .project-gallery-main,.project-gallery-sub span{background:linear-gradient(140deg,#f0e2cd,#d5bd99);border-color:#b99a72;color:#674d34}
+  .event-date-pill{background:#e8ddc7;color:#674b2e}.event-socials>span{color:#654a32}.event-socials>a{background:#efe2ce;color:#6b4b2f;border-color:#cbb18e}.event-socials>a small{color:#806447}
+  .preview-overlay{background:#38271ed9}.preview-window{background:#f5ecdf;border-color:#fffaf1;box-shadow:10px 13px 0 #ba9870,16px 20px 0 #fffaf1}
+  .preview-top{background:#eadbc5;color:#6f563b}.preview-bottom{background:#62432f;color:#e7d4b8}.preview-bottom b{color:#e4b75f}
+  .preview-close{background:#62432f;color:#fff8ec;box-shadow:3px 3px 0 #bd9667}
+  .preview-copy .label{color:#91633e}.preview-copy h2{color:#3d2c21}.preview-copy p{color:#705f50}
+  .player-frame{background:#39291f;box-shadow:6px 8px 0 #c6a47a}.player-frame iframe{background:#39291f}
+  .player-placeholder{background:radial-gradient(circle at 52% 42%,#79583c,#39291f 68%)}.player-placeholder:before{border-color:#dfbd7855}.player-orbit{border-color:#e4b75f;color:#573a21;background:#e4b75f;box-shadow:0 0 0 9px #e4b75f22,0 0 35px #d2a85066}
+  .player-placeholder p{color:#eadbc6}
+  .resume-download-secondary{background:#eadbc5;color:#59422e;border-color:#c9ae88}
+  /* Final brown palette pass for chapter notes, hover states, and contact folder. */
+  .folder-corner-note{background:#e8c979;color:#60452e;border-color:#c49d63;box-shadow:4px 5px 0 #a98258}
+  #about .think-cutout figcaption{background:#ead9bf;color:#725238;box-shadow:2px 3px 0 #b8956d}
+  #experience .section-head .about-copy,#experience .section-head .about-copy p{color:#eadbc6!important}
+  .project-shelf .project:hover,.project-shelf .project:focus-visible{border-color:#b98f61!important;box-shadow:5px 7px 0 #a98258,9px 12px 0 #e8d7bd!important}
+  .project-shelf .project:hover h3,.project-shelf .project:focus-visible h3,.project-shelf .project:hover p,.project-shelf .project:focus-visible p{color:#493322}
+  .event-card:hover,.video-card:hover{box-shadow:8px 12px 0 #7a5638!important}
+  .archive-book:hover,.archive-book:focus-visible,.archive-book.active{box-shadow:7px 10px 0 #68472e,0 0 0 1px #e6c273!important}
+  .skill-card:hover{box-shadow:inset 0 0 0 2px #e0b27b,7px 10px 0 #8b6644!important}
+  #certifications .cert:hover{box-shadow:0 0 0 4px #fff8e8,6px 9px 0 #805d3b,9px 13px 0 #e4d1b1!important}
+  .resume-preview:hover{box-shadow:8px 9px 0 #a98258,14px 15px 0 #e5d2b2!important}
+  #contact{background:#54392b!important}
+  #contact .contact-panel{box-shadow:8px 10px 0 #c4a47d,13px 16px 0 #a98258!important}
+  #contact .contact-links a:hover{color:#9e673e!important}
+  #contact .reach-bubble,#contact .reach-bubble:before,#contact .reach-bubble:after{background:#fffaf1;border-color:#c9a77e;box-shadow:3px 4px 0 #a98258}
+  #contact .reach-icons a{background:#f0dfc4!important;color:#65482d!important;border-color:#c9a77e!important;box-shadow:2px 3px 0 #bd9667!important}
+  #contact .reach-icons a:hover,#contact .reach-icons a:focus-visible{background:#e4c99f!important;color:#503621!important;box-shadow:2px 3px 0 #987248!important}
+  /* Remaining blue surfaces called out in the latest screenshots. */
+  .project-date{color:#705b45!important}
+  .future-work-note small,.future-work-note .label,.future-work-note i{color:#e6bd68!important}
+  .project-cabinet,.logistics-cabinet,.video-cabinet{border-color:#a98259!important;box-shadow:7px 10px 0 #38271e!important}
+  .logistics-cabinet .book-shelf-layout{background:#4d3528!important;border-color:#a98259;box-shadow:7px 9px 0 #38271e}
+  .video-cabinet .avp-archive,.video-cabinet .cassette-shelf{background:#4d3528!important;border-color:#a98259}
+  #creative .avp-archive .archive-heading h3{color:#fff5e5!important}
+  #creative .avp-archive .archive-heading .label,#creative .avp-archive .archive-heading>span{color:#e6c891!important}
+  .cassette-hint,.cassette-hint:hover{color:#ead5b4!important}
+  #certifications .cred-intro h2{color:#493322!important}
+  #certifications .cred-intro h2 em{color:#9b6942!important}
+  #certifications .cred-intro .eyebrow,#certifications .cred-intro p{color:#725b43!important}
+  #certifications .cert,#certifications .cert li{color:#503a28!important}
+  #certifications .cert small{color:#8a6541!important}
+  #certifications .cert li::marker{color:#a97845!important}
+  #certifications .cred-mark{color:#55391f!important}
+  #projectPreviewImage[src*="portfolio-preview"]{filter:sepia(.62) saturate(.78) hue-rotate(345deg)}
+  .notebook-mode .preview-content{background:repeating-linear-gradient(to bottom,#fffaf1 0 31px,#e8d9c5 31px 32px)!important}
+  .notebook-mode .preview-copy{background:radial-gradient(circle,#c5a882 0 4px,transparent 4.5px) center top/10px 34px repeat-y!important;box-shadow:3px 4px 0 #b8956d!important}
+  .notebook-mode .player-frame{border-color:#fffaf1!important;box-shadow:5px 6px 0 #b8956d!important}
+  .preview-window.tv-mode .tv-set{background:linear-gradient(145deg,#f0e2cd,#d8c09e)!important;border-color:#fffaf1!important;box-shadow:8px 11px 0 #a98258,14px 17px 0 #ead9bf!important}
+  .preview-window.tv-mode .tv-screen{background:#4b3325!important}
+  .preview-window.tv-mode .player-frame,.preview-window.tv-mode .player-frame iframe{background:#39291f!important}
+  .preview-window.tv-mode .tv-antenna,.preview-window.tv-mode .tv-antenna:before,.preview-window.tv-mode .tv-antenna:after{border-color:#9a7958!important}
+  .preview-window.tv-mode .tv-controls{color:#72583e!important}
+  .preview-window.tv-mode .tv-controls i{background:#bd9667!important;box-shadow:inset 1px 2px 3px #806044!important}
+  .preview-window.tv-mode .tv-controls b{background:#dfb768!important;color:#503621!important}
+  /* Final layout refinements from the latest review. */
+  .notebook-mode .preview-copy{background:rgba(255,250,241,.82)!important;box-shadow:3px 4px 0 #b8956d!important}
+  .notebook-mode .preview-content:before{left:19px!important;background:radial-gradient(circle,#c5a882 0 4px,transparent 4.5px) center top/10px 34px repeat-y!important}
+  .cassette:hover,.cassette:focus-visible,.cassette:active{border-color:#b98f61!important;box-shadow:9px 12px 0 #39261c,13px 17px 0 #5a3b2b!important}
+  .cassette:hover .cassette-case,.cassette:focus-visible .cassette-case{border-color:#b79569!important;box-shadow:inset 0 0 0 5px #ead8bd!important}
+  .cassette-window{background:#62432f!important;border-color:#fff3df!important;box-shadow:inset 0 0 0 1px #ac875c!important}
+  .cassette-window i{border-color:#e0c394!important}.cassette-window b{background:#dfb768!important}
+  .cassette-hint:hover{color:#ead5b4!important}
+  .event-archive,.avp-archive{background:transparent!important;border-color:transparent!important;box-shadow:none!important}
+  .event-archive .archive-heading h3,.avp-archive .archive-heading h3{font-size:clamp(21px,2.35vw,29px)!important;line-height:1.08!important;color:#fff5e5!important}
+  .event-archive .archive-heading .label,.event-archive .archive-heading>span,.avp-archive .archive-heading .label,.avp-archive .archive-heading>span{color:#e6c891!important}
+  #toolkit .skill-legend{margin:18px 0 30px!important}
+  #creative.video-cabinet .avp-archive{background:transparent!important;border-color:transparent!important;box-shadow:none!important}
+  #creative .archive-block.avp-archive{background:transparent!important;background-image:none!important;border:0!important;box-shadow:none!important}
+  .skills-layout .skill-card .chip-certified{background:#f3cf58!important;color:#503507!important;border:1px solid #ffe89a!important;box-shadow:3px 4px 0 #b98322!important}
+  .skills-layout .skill-card .chip-course{background:#c8a6ef!important;color:#38205f!important;border:1px solid #ead9ff!important;box-shadow:3px 4px 0 #8056b6!important}
+  .skills-layout .skill-card .chip-self{background:#a9d99e!important;color:#234d28!important;border:1px solid #d7f2cb!important;box-shadow:3px 4px 0 #5e9858!important}
+  #work .project-scroll{padding-top:20px}
+  #work .project-shelf .project:before{content:"PROJECT FILE";top:-12px;left:20px;z-index:4;display:flex;align-items:center;min-height:21px;padding:4px 13px;white-space:nowrap;background:#ead9bf;border-color:#c9ae88;color:#72583d}
+  #work .project-shelf .project .project-tag{border:1px solid #c6a579;box-shadow:3px 4px 0 #a98259!important;font-weight:700}
+  #work .project-shelf .project[data-preview-title="WAILS"] .project-tag{background:#f2cf62!important;color:#583b17!important;border-color:#d0a73e}
+  #work .project-shelf .project[data-preview-title="HexLapTer"] .project-tag{background:#c5a2e8!important;color:#41295e!important;border-color:#a37bc9}
+  #work .project-shelf .personal-project .project-tag{background:#a8d79d!important;color:#315632!important;border-color:#79b76e}
+  .legend-certified{background:#f3cf58!important;box-shadow:1px 2px 0 #b98322!important}
+  .legend-course{background:#c8a6ef!important;box-shadow:1px 2px 0 #8056b6!important}
+  .legend-self{background:#a9d99e!important;box-shadow:1px 2px 0 #5e9858!important}
+  .project-status.status-completed{background:#a9d99e!important;color:#234d28!important;border:1px solid #d7f2cb!important;box-shadow:3px 4px 0 #5e9858!important}
+  .project-status.status-ongoing{background:#c8a6ef!important;color:#38205f!important;border:1px solid #ead9ff!important;box-shadow:3px 4px 0 #8056b6!important}
+  .project-difficulty,.detail-difficulty,.project-difficulty.difficulty-easy,.project-difficulty.difficulty-easy-moderate,.project-difficulty.difficulty-moderate,.project-difficulty.difficulty-difficult,.detail-difficulty.difficulty-easy,.detail-difficulty.difficulty-easy-moderate,.detail-difficulty.difficulty-moderate,.detail-difficulty.difficulty-difficult{background:#f3cf58!important;color:#503507!important;border:1px solid #ffe89a!important;box-shadow:3px 4px 0 #b98322!important}
+  .project-date,.detail-date{background:#eadbc5!important;color:#62472e!important;border-color:#c9a77e!important;box-shadow:2px 3px 0 #b8956d!important}
+  .difficulty-meter{background:#f4e8d6!important;border-color:#d3b48a!important;box-shadow:3px 4px 0 #c4a47e!important}
+  .difficulty-meter-head{color:#62472e!important}.difficulty-track{background:#dfcfb7!important}
+  .difficulty-track .fill-easy,.difficulty-track .fill-easy-moderate,.difficulty-track .fill-moderate,.difficulty-track .fill-difficult{background:#d6a82e!important}
+  .detail-status.status-completed{background:#a9d99e!important;color:#234d28!important;border:1px solid #d7f2cb!important;box-shadow:3px 4px 0 #5e9858!important}
+  .detail-status.status-ongoing{background:#c8a6ef!important;color:#38205f!important;border:1px solid #ead9ff!important;box-shadow:3px 4px 0 #8056b6!important}
+  .project-difficulty.difficulty-easy,.detail-difficulty.difficulty-easy{background:#a9d99e!important;color:#234d28!important;border:1px solid #d7f2cb!important;box-shadow:3px 4px 0 #5e9858!important}
+  .project-difficulty.difficulty-easy-moderate,.detail-difficulty.difficulty-easy-moderate{background:#d7dc89!important;color:#505329!important;border:1px solid #edf0bd!important;box-shadow:3px 4px 0 #969b4e!important}
+  .project-difficulty.difficulty-moderately-easy,.detail-difficulty.difficulty-moderately-easy{background:#d7dc89!important;color:#505329!important;border:1px solid #edf0bd!important;box-shadow:3px 4px 0 #969b4e!important}
+  .project-difficulty.difficulty-moderate,.detail-difficulty.difficulty-moderate{background:#f3cf58!important;color:#503507!important;border:1px solid #ffe89a!important;box-shadow:3px 4px 0 #b98322!important}
+  .project-difficulty.difficulty-moderately-difficult,.detail-difficulty.difficulty-moderately-difficult{background:#e9aa60!important;color:#603914!important;border:1px solid #f6d19b!important;box-shadow:3px 4px 0 #b87336!important}
+  .project-difficulty.difficulty-difficult,.detail-difficulty.difficulty-difficult{background:#df8f7e!important;color:#582c27!important;border:1px solid #f3c1b4!important;box-shadow:3px 4px 0 #a9574a!important}
+  .difficulty-track .fill-easy{background:#70b96b!important}
+  .difficulty-track .fill-easy-moderate{background:#aeb64d!important}
+  .difficulty-track .fill-moderately-easy{background:#aeb64d!important}
+  .difficulty-track .fill-moderate{background:#d6a82e!important}
+  .difficulty-track .fill-moderately-difficult{background:#d7833d!important}
+  .difficulty-track .fill-difficult{background:#c96556!important}
+  @media(max-width:760px){#toolkit .skill-legend{margin:14px 0 24px!important}}
+  @media(max-width:760px){.project-drawer-foot{background:#3d2a20}.book-shelf-layout{background:#4d3528}.resume-download-secondary{background:#eadbc5}}
+  @media(prefers-reduced-motion:reduce){.featured-role .role-badge:after{animation:none}}
+  /* A light plaster wall unifies Skills through Contact; the CV rests on its own tabletop. */
+  #toolkit,#certifications,#resume,#contact{
+    position:relative;
+    background-color:#e1e3d8!important;
+    background-image:radial-gradient(ellipse at 16% 12%,#fffdf384 0,transparent 31%),radial-gradient(ellipse at 82% 72%,#9d9a841c 0,transparent 37%),radial-gradient(ellipse at 36% 90%,#fff8e62e 0,transparent 34%),linear-gradient(115deg,#e7e7dc,#d9ded2 62%,#e6e3d8)!important;
+    color:#493729;
+  }
+  #toolkit,#certifications,#resume,#contact{width:100vw;max-width:none;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);padding-left:max(24px,calc((100vw - 1160px)/2));padding-right:max(24px,calc((100vw - 1160px)/2))}
+  #toolkit{padding-top:78px;padding-bottom:105px;border-top:12px solid #92704f}
+  #toolkit>.section-head h2,#certifications .cred-intro h2,#resume .resume-intro h2,#contact .contact-panel h2{color:#493729!important}
+  #toolkit>.section-head h2 em,#certifications .cred-intro h2 em,#resume .resume-intro h2 em{color:#9a704a!important}
+  #toolkit>.section-head>.eyebrow,#certifications .cred-intro .eyebrow,#certifications .cred-intro p,#resume .resume-intro .eyebrow,#resume .resume-intro p,#contact .contact-panel .eyebrow,#contact .contact-panel p{color:#765e49!important}
+  #toolkit .skill-legend{background:#fbf8ef!important;border-color:#b5a88f!important;box-shadow:3px 4px 0 #c7b99f!important;color:#5d4938!important}
+  #certifications{border-block:10px solid #987552!important;box-shadow:inset 0 5px 0 #f7f2e6,inset 0 -6px 0 #b4946c!important}
+  #certifications .cert{background:linear-gradient(135deg,#fffdf6,#f3ecdc)!important;border-color:#c9a66d!important;box-shadow:0 0 0 4px #fffaf0,5px 9px 0 #98744a,8px 13px 0 #fffdf0a8!important}
+  #certifications .cert:before{background:linear-gradient(90deg,#9c7a51,#d1b584,#9c7a51)!important}
+  #certifications .cert:hover{box-shadow:0 0 0 4px #fffaf0,6px 12px 0 #89663f,9px 16px 0 #fffdf0ba!important}
+  #resume{overflow:hidden;border:0!important;box-shadow:none!important;padding-top:84px}
+  #resume .resume-layout{position:relative;isolation:isolate}
+  #resume .resume-layout:before{content:"";position:absolute;z-index:-1;left:-6vw;right:-6vw;top:74px;bottom:18px;border:9px solid #785437;border-top:13px solid #b88c5d;border-bottom:12px solid #714a2e;background-color:#a7784d;background-image:repeating-linear-gradient(0deg,transparent 0 34px,#51351d26 35px,#e1bb8a20 37px,transparent 40px),repeating-linear-gradient(90deg,#fff8e208 0 1px,transparent 1px 82px),linear-gradient(120deg,#bd9064,#986a43 58%,#b28254);box-shadow:0 11px 0 #5a3d2a,0 17px 0 #d5b68d}
+  #resume .resume-intro{background:#fffaf0!important;border-color:#e6d7bd!important;box-shadow:5px 7px 0 #694a32,8px 11px 0 #fffdf0c9!important;border-left:1px solid #e6d7bd!important;transform:rotate(-.7deg)}
+  #resume .resume-preview{background:#fffaf0!important;border-color:#f6ecd9!important;box-shadow:8px 10px 0 #694a32,13px 16px 0 #fffdf0cf!important}
+  #resume .resume-preview:hover{box-shadow:10px 13px 0 #694a32,16px 19px 0 #fffdf0db!important}
+  #contact{padding-top:94px;padding-bottom:90px;border-top:0!important}
+  #contact .contact-panel{overflow:visible!important;isolation:isolate;background:#f4ead8!important;color:#493729!important;border:1px solid #fffaf0!important;box-shadow:8px 10px 0 #c4a47d,13px 16px 0 #fffdf0!important}
+  #contact .contact-panel:before{content:"PERSONAL FILE / 05 · LET’S CONNECT";position:absolute;z-index:3;top:-27px;left:28px;display:flex;align-items:center;width:300px;max-width:75%;height:35px;padding:0 18px;background:#d7bd91;color:#62482e;font:8px var(--mono);letter-spacing:.12em;clip-path:polygon(0 0,84% 0,100% 100%,0 100%);box-shadow:3px 4px 0 #a98258}
+  #contact .contact-panel:after{z-index:0;color:#a4774c26}
+  #contact .contact-panel .contact-copy,#contact .contact-panel .contact-links,#contact .contact-panel .contact-cutout{position:relative;z-index:1}
+  #contact .contact-links a{color:#563d2a!important;border-color:#c5a882!important}
+  #contact .contact-links a:hover{color:#9e673e!important}
+  @media(max-width:760px){#toolkit,#certifications,#resume,#contact{padding-left:20px;padding-right:20px}#toolkit{padding-top:58px;padding-bottom:70px}#resume{padding-top:56px}#resume .resume-layout:before{top:50px;bottom:14px;left:-12px;right:-12px}#contact{padding-top:78px}#contact .contact-panel:before{left:15px;max-width:78%;font-size:7px}}
+  /* Warm plaster wall above; one continuous table supports the resume and contact pieces. */
+  #toolkit,#certifications{
+    background-color:#c9c6b5!important;
+    background-image:radial-gradient(circle at 1px 1px,#745f4920 1px,transparent 1.5px),radial-gradient(ellipse at 18% 16%,#f0eadb70 0,transparent 38%),radial-gradient(ellipse at 84% 78%,#8a795522 0,transparent 42%),linear-gradient(135deg,#cfccbd,#c2c1b2 56%,#d0cdbd)!important;
+    background-size:18px 18px,100% 100%,100% 100%,100% 100%!important;
+  }
+  #toolkit{border-top:0!important;padding-top:78px!important}
+  #certifications{border:0!important;box-shadow:none!important}
+  .desk-zone{position:relative;isolation:isolate;width:100vw;margin-left:calc(50% - 50vw);padding:44px 0 68px;overflow:hidden;background-color:#b78c60;background-image:repeating-linear-gradient(0deg,transparent 0 57px,#6f49251c 58px,#f1d4ad24 61px,transparent 64px),repeating-linear-gradient(90deg,#fff5e20a 0 1px,transparent 1px 96px),linear-gradient(110deg,#c49a6e,#a77a50 48%,#bd9062);box-shadow:inset 0 1px 0 #e7c89d66,inset 0 -2px 0 #6d4a30aa}
+  .desk-zone:before{content:"";position:absolute;z-index:-1;inset:18px 0 18px;border-block:1px solid #734c2d55;pointer-events:none}
+  .desk-zone #resume,.desk-zone #contact{width:100%;max-width:none;margin:0;background:transparent!important}
+  .desk-zone #resume{overflow:visible;border:0!important;box-shadow:none!important;padding-top:52px!important}
+  .desk-zone #resume .resume-layout:before{display:none!important}
+  .desk-zone #resume .resume-layout{position:relative;isolation:isolate}
+  .desk-zone #contact{padding-top:55px!important;padding-bottom:38px!important;border:0!important}
+  @media(max-width:760px){.desk-zone{padding:26px 0 42px}.desk-zone #resume{padding-top:36px!important}.desk-zone #contact{padding-top:42px!important;padding-bottom:24px!important}}
+    /* Keep the wall visible around a single compact table holding all three portfolio pieces. */
+  .desk-zone{background-color:#c9c6b5!important;background-image:radial-gradient(circle at 1px 1px,#745f4920 1px,transparent 1.5px),radial-gradient(ellipse at 18% 16%,#f0eadb70 0,transparent 38%),radial-gradient(ellipse at 84% 78%,#8a795522 0,transparent 42%),linear-gradient(135deg,#cfccbd,#c2c1b2 56%,#d0cdbd)!important;box-shadow:none!important}
+  .desk-zone:before{content:"";position:absolute;z-index:-1;top:82px;bottom:76px;left:50%;right:auto;box-sizing:border-box;width:min(1180px,calc(100% - 64px));transform:translateX(-50%);border:7px solid #8d6947;border-top:11px solid #b78c60;border-bottom:10px solid #765338;background-color:#b78c60;background-image:repeating-linear-gradient(0deg,transparent 0 57px,#6f49251c 58px,#f1d4ad24 61px,transparent 64px),repeating-linear-gradient(90deg,#fff5e20a 0 1px,transparent 1px 96px),linear-gradient(110deg,#c49a6e,#a77a50 48%,#bd9062);box-shadow:0 8px 0 #6d4a30aa,0 12px 0 #e3c49a77;pointer-events:none}
+  @media(max-width:760px){.desk-zone{padding-top:24px;padding-bottom:40px}.desk-zone:before{top:52px;bottom:44px;width:calc(100% - 40px);border-width:5px;border-top-width:8px;border-bottom-width:7px}}
+    /* Shared decorative plaster wall for chapters 03–05. */
+  #toolkit,#certifications,.desk-zone{background-color:#c9c6b5!important;background-image:radial-gradient(circle at 1px 1px,#745f4920 1px,transparent 1.5px),radial-gradient(circle at 89% 19%,transparent 0 76px,#846e4d22 77px 79px,transparent 80px),radial-gradient(circle at 89% 19%,transparent 0 106px,#846e4d1a 107px 109px,transparent 110px),radial-gradient(circle at 10% 84%,transparent 0 56px,#846e4d18 57px 59px,transparent 60px),radial-gradient(ellipse at 18% 16%,#f0eadb70 0,transparent 38%),radial-gradient(ellipse at 84% 78%,#8a795522 0,transparent 42%),linear-gradient(135deg,#cfccbd,#c2c1b2 56%,#d0cdbd)!important;background-size:18px 18px,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%!important}
+  .desk-zone:before{width:min(1240px,calc(100% - 8px))}
+  @media(max-width:760px){.desk-zone:before{width:calc(100% - 16px)}}
+    /* Use one tiled wallpaper texture so the shared wall stays consistent at every section boundary. */
+  /* Shared warm plaster wall from Skills through Contact. */
+  #toolkit,#certifications,.desk-zone{background-color:#d1cbb9!important;background-image:radial-gradient(circle at 1px 1px,#745f4918 1px,transparent 1.5px),radial-gradient(ellipse at 16% 18%,#f5efdf70 0,transparent 42%),radial-gradient(ellipse at 88% 78%,#8a795518 0,transparent 46%),linear-gradient(135deg,#d8d2c2,#cbc6b6 56%,#d6d0bf)!important;background-size:18px 18px,100% 100%,100% 100%,100% 100%!important}
+  #toolkit,.cred,.desk-zone{position:relative;isolation:isolate}
+  #toolkit:before{content:"03";position:absolute;left:clamp(14px,3vw,48px);top:8px;color:#765e3d20;font:900 clamp(150px,18vw,260px)/1 var(--display);letter-spacing:-.12em;pointer-events:none;z-index:0}
+  #toolkit>.wrap,#certifications>.wrap,.desk-zone>section{position:relative;z-index:1}
+  /* Subtle folded-paper accents make the plaster read as a decorated wall. */
+  #toolkit:after,#certifications:after,.desk-zone:after{content:"";position:absolute;z-index:0;right:clamp(20px,7vw,110px);top:28px;width:104px;height:78px;opacity:.48;pointer-events:none;transform:rotate(7deg);background:linear-gradient(145deg,#fff9e8 0 48%,#d3b78e 49% 51%,#ead8b7 52%);clip-path:polygon(0 18%,56% 0,100% 30%,68% 100%,30% 72%)}
+  #certifications:after{top:auto;bottom:35px;right:clamp(18px,5vw,76px);transform:rotate(-9deg) scale(.78);opacity:.38}
+  .desk-zone:after{top:30px;right:clamp(20px,6vw,90px);transform:rotate(12deg) scale(.85);opacity:.36}
+  .desk-zone:before{top:82px;bottom:20px;width:min(1260px,calc(100% - 8px));border-color:#805b3b;border-top-color:#a77b52;border-bottom-color:#65452e;background-color:#ad8057;background-image:repeating-linear-gradient(0deg,transparent 0 57px,#573a251c 58px,#f1d4ad20 61px,transparent 64px),repeating-linear-gradient(90deg,#fff5e208 0 1px,transparent 1px 96px),linear-gradient(110deg,#bb9066,#9e724c 48%,#ae8055);box-shadow:0 8px 0 #5e402caa,0 12px 0 #e3c49a77}
+  @media(max-width:760px){#toolkit:before{left:5px;top:0;font-size:clamp(105px,30vw,170px)}#toolkit:after,#certifications:after,.desk-zone:after{width:66px;height:50px;right:14px;opacity:.28}.desk-zone:before{bottom:20px;width:calc(100% - 16px)}}
+  /* Chapters 03 and 04 share one visual frame and matching chapter numerals. */
+  #toolkit,#certifications{box-sizing:border-box;min-height:600px;padding-top:78px!important;padding-bottom:78px!important;border:0!important;box-shadow:none!important;background-color:#d1cbb9!important;background-image:radial-gradient(circle at 1px 1px,#745f4918 1px,transparent 1.5px),radial-gradient(ellipse at 16% 18%,#f5efdf70 0,transparent 42%),radial-gradient(ellipse at 88% 78%,#8a795518 0,transparent 46%),linear-gradient(135deg,#d8d2c2,#cbc6b6 56%,#d6d0bf)!important;background-size:18px 18px,100% 100%,100% 100%,100% 100%!important;background-attachment:fixed!important}
+  #toolkit:before,.cred:before{top:8px;color:#765e3d20!important;font:900 clamp(150px,18vw,260px)/1 var(--display)!important;letter-spacing:-.12em}
+  #toolkit:before{left:clamp(14px,3vw,48px)}
+  .cred:before{left:clamp(14px,3vw,48px);right:auto}
+  #toolkit:before{content:"03"!important}
+  .cred:before{content:"04"!important}
+  @media(max-width:760px){#toolkit,#certifications{min-height:0;padding-top:58px!important;padding-bottom:58px!important}#toolkit:before,.cred:before{left:5px;right:auto;top:0;font-size:clamp(105px,30vw,170px)!important}}
+  /* Continue the same wall surface through chapters 03–05 without a section seam. */
+  #toolkit,#certifications,.desk-zone{background-color:#d1cbb9!important;background-image:radial-gradient(circle at 1px 1px,#745f4918 1px,transparent 1.5px),radial-gradient(ellipse at 16% 18%,#f5efdf70 0,transparent 42%),radial-gradient(ellipse at 88% 78%,#8a795518 0,transparent 46%),radial-gradient(ellipse at 52% 44%,#f2ead826 0,transparent 58%),linear-gradient(135deg,#d8d2c2,#cbc6b6 56%,#d6d0bf)!important;background-size:18px 18px,100% 100%,100% 100%,100% 100%,100% 100%!important;background-attachment:fixed!important}
+  #certifications,.desk-zone{border-top:0!important;box-shadow:none!important}
+  #toolkit:after,#certifications:after,.desk-zone:after{width:118px;height:88px;opacity:.52;filter:drop-shadow(3px 5px 0 #8c704322)}
+  #certifications:after{opacity:.42}
+  .desk-zone:after{opacity:.4}
+  @media(max-width:760px){#toolkit:after,#certifications:after,.desk-zone:after{width:68px;height:52px;opacity:.3}}
+  /* Furniture-style archive cases: retain all drawer contents and interactions. */
+  .project-cabinet,.logistics-cabinet,.video-cabinet{position:relative;isolation:isolate;overflow:visible;margin:54px 0 68px;padding:0 12px 12px;border:10px solid #704a30;border-top-width:22px;border-radius:2px;background-color:#956b47;background-image:repeating-linear-gradient(2deg,transparent 0 42px,#f6d7a20b 43px,#482b1b13 45px,transparent 47px),repeating-linear-gradient(90deg,#fff5df08 0 2px,transparent 2px 108px),linear-gradient(110deg,#a77b52,#805638 48%,#9b7048)!important;box-shadow:inset 0 0 0 3px #d1ad78,inset 9px 0 13px #3f291c55,inset -9px 0 13px #3f291c45,10px 13px 0 #3e291e!important;color:#fff6e7}
+  .project-cabinet:before,.logistics-cabinet:before,.video-cabinet:before{z-index:2;left:-10px;right:-10px;top:-22px;height:21px;background:repeating-linear-gradient(0deg,#c69c68 0 2px,#9d7148 3px 5px,#b7895b 6px 100%);border:1px solid #6b472e;border-bottom:4px solid #68452d;box-shadow:0 4px 0 #503522}
+  .project-cabinet:after,.logistics-cabinet:after,.video-cabinet:after{content:"";position:absolute;z-index:2;left:-10px;right:-10px;bottom:-19px;height:18px;border:1px solid #65432b;background:linear-gradient(180deg,#c69a66 0 18%,#9c7149 20% 74%,#69462d 76%);box-shadow:0 5px 0 #3e291e;pointer-events:none}
+  .project-cabinet .cabinet-label,.logistics-cabinet .cabinet-label,.video-cabinet .cabinet-label{z-index:3;top:-22px;left:18px;right:18px;min-height:17px;color:#5e4029;font-weight:700}
+  .project-cabinet .cabinet-label b,.logistics-cabinet .cabinet-label b,.video-cabinet .cabinet-label b{color:#704a30}
+  .project-drawer-inner{position:relative;z-index:1;padding-top:38px}
+  .project-drawer-heading,.chapter-drawer-heading{border:1px solid #f5e4c7!important;border-left:8px solid #bb8d56!important;background:linear-gradient(100deg,#f3e5ca 0%,#ead5b2 72%,#d9bc91 100%)!important;box-shadow:inset 0 0 0 3px #fff8e9,5px 7px 0 #69472f!important}
+  .project-drawer-heading h2,.chapter-drawer-heading h2{color:#493322!important}
+  .project-drawer-heading p,.chapter-drawer-heading p{color:#6c5238!important}
+  .project-shelf{margin:0 0 34px;padding:17px 15px 30px;border:8px solid #795332;background:linear-gradient(145deg,#c39762,#ad7d4d 58%,#ba8b59)!important;box-shadow:inset 0 0 0 3px #e2c18d,0 10px 0 #68472f,0 15px 0 #412c20!important}
+  .project-shelf-label{margin-bottom:17px;padding:5px 8px 10px;border-bottom:1px solid #785234;color:#573b25!important}
+  .project-shelf-label small{color:#74573a!important}
+  .project-shelf .project-scroll{padding-bottom:17px;scrollbar-color:#a5794d #d4b487}
+  .project-shelf .project{box-shadow:5px 7px 0 #795638,8px 10px 0 #e5cfad!important}
+  .project-shelf .project:hover{box-shadow:6px 9px 0 #795638,9px 12px 0 #e5cfad!important}
+  .drawer-rail{left:13px;right:13px;bottom:5px;height:12px;border:1px solid #68472f;border-radius:1px;background:linear-gradient(180deg,#e0bd84 0 18%,#b18351 20% 70%,#795333 72%);box-shadow:0 4px 0 #4c3322}
+  .project-drawer-foot{position:relative;z-index:1;margin:20px -12px -12px;padding-top:13px;background:#68472f;color:#f3dfbe}
+  .logistics-cabinet .book-shelf-layout{position:relative;padding:17px 16px 0;border:9px solid #69472f;background:linear-gradient(125deg,#855b3c,#67452f)!important;box-shadow:inset 0 0 0 3px #b58a59,0 10px 0 #503522!important}
+  .logistics-cabinet .book-shelf{min-height:270px;padding:12px 11px 17px;background:linear-gradient(180deg,#69472f,#4f3525);box-shadow:inset 0 0 0 2px #b58a59}
+  .logistics-cabinet .archive-book{box-shadow:inset 4px 0 0 #ffffff42,3px 3px 0 #39261c}
+  .logistics-cabinet .archive-book:hover,.logistics-cabinet .archive-book.active{box-shadow:inset 4px 0 0 #fff8df,6px 8px 0 #39261c,0 0 0 1px #e1bc77}
+  .logistics-cabinet .book-preview{background:#d8bd91;box-shadow:inset 0 0 0 4px #f5e7cd,4px 5px 0 #4a3222}
+  .logistics-cabinet .book-preview-cover{background:linear-gradient(145deg,#fff9ed,#ead8b8);color:#583d27;box-shadow:4px 5px 0 #b58a59}
+  .logistics-cabinet .book-preview-cover div h4{color:#493322}
+  .logistics-cabinet .book-preview-cover div p{color:#765c40}
+  .logistics-cabinet .shelf-base{position:relative;margin:0 -16px;padding:13px 17px 12px;border-top:4px solid #d3ad75;background:linear-gradient(180deg,#a87d50,#714d32 40%,#563a27);box-shadow:0 7px 0 #3d291d;color:#f0d9b3}
+  .video-cabinet .avp-archive{position:relative;margin:24px 0 8px;padding:15px 15px 21px;background:linear-gradient(145deg,#80583a,#5d3e2b)!important;border:8px solid #704a30!important;box-shadow:inset 0 0 0 3px #bd9562,0 10px 0 #4c3322!important}
+  .video-cabinet .cassette-shelf{position:relative;padding:15px 12px 25px;background:linear-gradient(180deg,#805a3b,#62432f)!important;border:1px solid #d1ad78!important;box-shadow:inset 0 0 0 4px #a77d50,0 8px 0 #4d3322!important}
+  .video-cabinet .cassette-shelf:after{content:"";position:absolute;z-index:0;left:-8px;right:-8px;bottom:-16px;height:15px;border:1px solid #69462d;background:linear-gradient(180deg,#dfbd87 0 18%,#ae8050 21% 72%,#704c30 75%);box-shadow:0 5px 0 #422d20;pointer-events:none}
+  .video-cabinet .cassette{position:relative;z-index:1;box-shadow:5px 7px 0 #5b3d29,8px 10px 0 #d9bc8f!important}
+  .video-cabinet .cassette:hover,.video-cabinet .cassette:focus-visible{box-shadow:7px 10px 0 #5b3d29,10px 13px 0 #d9bc8f!important}
+  .video-cabinet .cassette-window{background:#583a27;border-color:#f0dfc1;box-shadow:inset 0 0 0 1px #9e784e}
+  .video-cabinet .cassette-window i{border-color:#d3b17b}
+  .video-cabinet .cassette-window b{background:#d3ad72}
+  @media(max-width:760px){.project-cabinet,.logistics-cabinet,.video-cabinet{margin:40px 0 56px;padding:0 7px 8px;border-width:6px;border-top-width:18px;box-shadow:inset 0 0 0 2px #d1ad78,6px 8px 0 #3e291e!important}.project-cabinet:before,.logistics-cabinet:before,.video-cabinet:before{left:-6px;right:-6px;top:-18px;height:17px}.project-cabinet:after,.logistics-cabinet:after,.video-cabinet:after{left:-6px;right:-6px;bottom:-14px;height:13px}.project-drawer-inner{padding-top:32px}.project-shelf{padding:13px 8px 25px;border-width:5px}.project-drawer-foot{margin-left:-7px;margin-right:-7px;margin-bottom:-8px}.logistics-cabinet .book-shelf-layout{padding:9px 8px 0;border-width:5px}.logistics-cabinet .book-shelf{min-height:220px}.logistics-cabinet .shelf-base{margin:0 -8px}.video-cabinet .avp-archive{padding:10px 8px 16px;border-width:5px!important}.video-cabinet .cassette-shelf{padding:10px 7px 22px}}
+  /* Center the cabinet legend vertically within each top rail. */
+  .project-cabinet .cabinet-label,.logistics-cabinet .cabinet-label,.video-cabinet .cabinet-label{height:21px;min-height:21px;box-sizing:border-box;align-items:center;padding:0 10px;line-height:1;top:-22px}
+  @media(max-width:760px){.project-cabinet .cabinet-label,.logistics-cabinet .cabinet-label,.video-cabinet .cabinet-label{height:17px;min-height:17px;top:-18px;padding:0 7px}}
+  /* Keep origami behind the tabletop and all resume/contact content. */
+  .desk-zone:after{z-index:-1!important}
+  .desk-zone:before{z-index:0!important}
+  .desk-zone>section{z-index:1}
+  /* Pin the rotating contact bubble over the portrait's head; keep it available on touch screens. */
+  #contact .reach-bubble{left:50%!important;right:auto!important;top:0!important;transform:translate(-50%,8px) scale(.84);transform-origin:bottom center}
+  #contact .reach-bubble:after{left:50%;bottom:-8px;transform:translateX(-50%) rotate(45deg)}
+  #contact .contact-cutout:hover .reach-bubble,#contact .contact-cutout:focus-within .reach-bubble{transform:translate(-50%,0) scale(1)}
+  @media(hover:none){#contact .reach-bubble{opacity:1;transform:translate(-50%,0) scale(1)}}
+  /* The global section padding was adding large empty bands inside every drawer popup. */
+  .preview-overlay>.preview-window{width:min(1080px,100%);padding:0!important;min-height:0;max-height:calc(100dvh - 40px);box-sizing:border-box}
+  .preview-overlay>.preview-window>.preview-content{padding:clamp(18px,3vw,34px);gap:clamp(16px,2.2vw,24px)}
+  @media(max-width:760px){.preview-overlay>.preview-window{width:100%;max-height:calc(100dvh - 16px)}.preview-overlay>.preview-window>.preview-content{padding:14px 12px;gap:12px}}
+  /* Give each event archive spine its own cover identity, drawn from the event theme. */
+  .logistics-cabinet .archive-book{--event-accent:#f3d17b;border-left:6px solid var(--event-accent)!important;border-right:1px solid #fff5e22b!important;background-image:linear-gradient(90deg,#24180a40 0%,transparent 18%,#fff9e51c 68%,#24180a36 100%)!important;color:#fff8e9!important;box-shadow:inset 1px 0 0 #fff8e866,3px 3px 0 #39261c!important}
+  .logistics-cabinet .archive-book[data-preview-title="First Membership Drive"]{--event-accent:#f3c763;background-color:#a63832!important;background-image:linear-gradient(90deg,#24180a40 0%,transparent 18%,#fff9e51c 68%,#24180a36 100%),radial-gradient(circle at 50% 43%,#ffc94c77 0 2px,transparent 2.5px),linear-gradient(145deg,#b64a38,#762f32)!important;background-size:auto,11px 11px,auto}
+  .logistics-cabinet .archive-book[data-preview-title="1st General Assembly"]{--event-accent:#77e1d2;background-color:#167a78!important;background-image:linear-gradient(90deg,#10282140 0%,transparent 18%,#fff9e51c 68%,#10282136 100%),repeating-linear-gradient(135deg,transparent 0 12px,#a5eee51f 12px 14px),linear-gradient(145deg,#258f88,#145b64)!important}
+  .logistics-cabinet .archive-book[data-preview-title="Dungeons & Dragons Workshop"]{--event-accent:#c5a3ff;background-color:#493781!important;background-image:linear-gradient(90deg,#180f3d44 0%,transparent 18%,#fff9e51c 68%,#180f3d38 100%),radial-gradient(circle at 50% 38%,#f0d788b8 0 2px,transparent 2.5px),repeating-linear-gradient(45deg,transparent 0 17px,#cbb8ff1c 17px 19px),linear-gradient(150deg,#6954ab,#30274f)!important}
+  .logistics-cabinet .archive-book[data-preview-title="Magic: The Gathering Workshop"]{--event-accent:#f4c56d;background-color:#31584b!important;background-image:linear-gradient(90deg,#10201640 0%,transparent 18%,#fff9e51c 68%,#10201636 100%),repeating-linear-gradient(0deg,transparent 0 15px,#ffe3a629 16px 17px),linear-gradient(145deg,#47785a,#253e37)!important}
+  .logistics-cabinet .archive-book[data-preview-title="Indies Ascent"]{--event-accent:#a6e58c;background-color:#3d713e!important;background-image:linear-gradient(90deg,#10230f40 0%,transparent 18%,#fff9e51c 68%,#10230f36 100%),repeating-linear-gradient(0deg,transparent 0 9px,#d6f4931b 9px 10px),repeating-linear-gradient(90deg,transparent 0 9px,#d6f4931b 9px 10px),linear-gradient(145deg,#5c9b50,#315239)!important}
+  .logistics-cabinet .archive-book[data-preview-title="Respawn & Reconnect"]{--event-accent:#e5b7ff;background-color:#68418d!important;background-image:linear-gradient(90deg,#1b103040 0%,transparent 18%,#fff9e51c 68%,#1b103036 100%),radial-gradient(circle at 50% 28%,#ffd989a8 0 2px,transparent 2.5px),radial-gradient(circle at 34% 48%,#d9b8ff67 0 2px,transparent 2.5px),linear-gradient(145deg,#8557a5,#44315d)!important}
+  .logistics-cabinet .archive-book[data-preview-title="Pokémon TCG Workshop"]{--event-accent:#ffe276;background-color:#286f9a!important;background-image:linear-gradient(90deg,#0d213840 0%,transparent 18%,#fff9e51c 68%,#0d213836 100%),radial-gradient(circle at 50% 42%,#ffe276b8 0 3px,transparent 3.5px),repeating-linear-gradient(45deg,transparent 0 18px,#b9ebff1d 18px 20px),linear-gradient(145deg,#348fbd,#284e83)!important}
+  .logistics-cabinet .archive-book[data-preview-title="SAGE Rewind: The Final Arc"]{--event-accent:#ffd17a;background-color:#a9552e!important;background-image:linear-gradient(90deg,#28130840 0%,transparent 18%,#fff9e51c 68%,#28130836 100%),repeating-linear-gradient(0deg,transparent 0 15px,#ffe3a629 16px 17px),linear-gradient(145deg,#c27b3f,#743e35)!important}
+  .logistics-cabinet .archive-book.active,.logistics-cabinet .archive-book:hover,.logistics-cabinet .archive-book:focus-visible{border-left-color:var(--event-accent)!important;box-shadow:inset 4px 0 0 #fff8df,6px 8px 0 #39261c,0 0 0 1px var(--event-accent)!important}
+  /* Broader speech-bubble silhouette, with the rotating icon centered inside. */
+  #contact .reach-bubble{box-sizing:border-box;width:84px;height:56px;padding:0;display:grid;place-items:center;border-radius:18px}
+  #contact .reach-icons{width:36px;height:36px;flex-basis:36px}
+  #contact .reach-icons a{width:36px;height:36px}
+  #contact .reach-icons svg{width:18px;height:18px}
+  #contact .reach-bubble:after{left:50%;bottom:-10px;width:18px;height:12px;border:0;box-shadow:none;background:#fffaf1;clip-path:polygon(0 0,100% 0,50% 100%);transform:translateX(-50%);filter:drop-shadow(2px 3px 0 #a98258)}
+  #contact .reach-bubble:before{content:none}
+  #contact .reach-bubble{box-shadow:2px 3px 0 #bd9667,0 5px 10px #765b3b20!important}
+  #contact .reach-bubble:after{filter:drop-shadow(1px 1px 0 #bd9667)}
+  /* Certificate frames hang from peaked cords like the reference sketch. */
+  #certifications .certs{padding-top:28px;gap:38px 20px}
+  #certifications .cert{--cert-accent:#b99a69;position:relative;overflow:visible;margin-top:12px;padding:20px 17px 18px;border:3px double #b99a69!important;background-image:linear-gradient(90deg,var(--cert-accent),#eadcc2 52%,var(--cert-accent)),linear-gradient(145deg,#fffdf8,#f5eee2)!important;background-size:100% 2px,100% 100%!important;background-position:top left;background-repeat:no-repeat;box-shadow:0 0 0 2px #fffaf0,4px 6px 0 #987e5b,7px 10px 0 #fffdf0a8!important}
+  #certifications .cert:before{content:"";position:absolute;z-index:2;left:50%;top:-40px;width:min(76%,150px);height:38px;transform:translateX(-50%);background:radial-gradient(circle at 50% 2px,#f9f1df 0 2px,#9b835d 2.5px 3.5px,transparent 4px),linear-gradient(166deg,transparent 48%,#9b835d 49% 51%,transparent 52%) left top/50% 100% no-repeat,linear-gradient(194deg,transparent 48%,#9b835d 49% 51%,transparent 52%) right top/50% 100% no-repeat!important;box-shadow:none!important}
+  #certifications .cert:after{right:9px;bottom:3px;color:#e7dcc2;font-size:31px}
+  #certifications .cert:nth-child(1){--cert-accent:#b99a69}
+  #certifications .cert:nth-child(2){--cert-accent:#a9a083}
+  #certifications .cert:nth-child(3){--cert-accent:#b5a077}
+  #certifications .cert:nth-child(4){--cert-accent:#af9678}
+  #certifications .cert:nth-child(5){--cert-accent:#ad9276}
+  #certifications .cert:nth-child(6){--cert-accent:#9ca58e}
+  #certifications .cert:hover{box-shadow:0 0 0 2px #fffaf0,5px 8px 0 #896f4e,8px 12px 0 #fffdf0ba!important}
+  @media(max-width:760px){#certifications .certs{padding-top:25px;gap:34px 14px}#certifications .cert{margin-top:10px;padding:18px 13px 16px}#certifications .cert:before{top:-34px;height:32px}}
+  @media(max-width:460px){#certifications .certs{gap:32px}#certifications .cert{padding:17px 15px 16px}}
+  /* Keep the credentials uniform and paper-like; the hanger lines meet the frame. */
+  #certifications .cert,#certifications .cert:nth-child(n){--cert-accent:#a88a5e;background:#fffaf0!important;background-image:none!important;border:3px double #b59b72!important;color:#3f3023!important;box-shadow:inset 0 0 0 1px #eadfc9,4px 6px 0 #9a7e57,7px 9px 0 #fffdf5!important}
+  #certifications .cert small{color:#6f5639!important;font-size:10px;letter-spacing:.1em}
+  #certifications .cert li{color:#3f3023!important;font-size:13px;line-height:1.55}
+  #certifications .cert li::marker{color:#8b6a3e!important}
+  #certifications .cert:before{z-index:0;top:-40px;width:100%;height:42px;background:radial-gradient(circle at 50% 2px,#f7edda 0 2px,#9b835d 2.5px 3.5px,transparent 4px),linear-gradient(166deg,transparent 48%,#9b835d 49% 51%,transparent 52%) left top/50% 100% no-repeat,linear-gradient(194deg,transparent 48%,#9b835d 49% 51%,transparent 52%) right top/50% 100% no-repeat!important}
+  #certifications .cert:after{color:#e6dac3!important}
+  #certifications .cert:hover{box-shadow:inset 0 0 0 1px #eadfc9,5px 8px 0 #8d724d,8px 11px 0 #fffdf5!important}
+  @media(max-width:760px){#certifications .cert:before{top:-34px;height:36px}}
+  #certifications .cert{padding-bottom:58px}
+  #certifications .cert h3{position:relative;z-index:1;margin:0 0 4px;color:#3f3023;font:700 15px/1.2 var(--display);letter-spacing:-.02em}
+  #certifications .cert>small{position:relative;z-index:1;display:block;margin:0 0 11px;color:#725a3d!important;font:9px/1.35 var(--mono);letter-spacing:.12em;text-transform:uppercase}
+  #certifications .cert ul{position:relative;z-index:1;margin:0;padding-left:17px}
+  #certifications .cert:after{counter-increment:none!important;content:"✦"!important;z-index:2;right:14px;bottom:12px;display:grid;place-items:center;width:34px;height:34px;border:3px double #b59b72;border-radius:50%;background:radial-gradient(circle,#fffaf0 0 7px,#e8dcc6 8px 10px,#f5edde 11px);box-shadow:inset 0 0 0 2px #fffaf0,2px 3px 0 #a48a63;color:#886b44!important;font:16px/1 var(--serif)}
+  @media(max-width:760px){#certifications .cert{padding-bottom:55px}#certifications .cert h3{font-size:14px}}
+  #certifications .certs{grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch;grid-auto-rows:1fr;gap:34px 20px;padding:32px 5px 16px}
+  #certifications .cert{box-sizing:border-box;width:100%;height:100%;min-height:220px;margin-top:4px;padding:19px 16px 50px}
+  #certifications .cert:before{top:-31px;height:32px}
+  @media(max-width:900px){#certifications .certs{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:auto;gap:34px 16px}}
+  @media(max-width:760px){#certifications .cert{min-height:195px;margin-top:4px;padding:17px 13px 48px}#certifications .certs{padding-top:30px}}
+  @media(max-width:460px){#certifications .certs{grid-template-columns:minmax(0,1fr);gap:30px;grid-auto-rows:auto}#certifications .cert{height:auto;min-height:0;padding:17px 15px 48px}}
+  #certifications .cred-intro{align-self:center;padding-top:0!important}
+  @media(max-width:600px){#contact .reach-bubble{width:88px;height:58px}#contact .reach-icons,#contact .reach-icons a{width:40px;height:40px}#contact .reach-icons{flex-basis:40px}#contact .reach-icons svg{width:19px;height:19px}}
+  </style></body>
 </html>
